@@ -391,8 +391,8 @@ $reviews = [
         'review' => 'Works great, everything is editable, the author of the plugin responded immediately to all the questions I asked would recommend',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
-        'name' => 'https://www.spigotmc.org/data/avatars/s/15/15481.jpg',
+        'picture' => 'https://www.spigotmc.org/data/avatars/s/15/15481.jpg',
+        'name' => 'PrestigeElmo',
         'review' => 'Absolutely phenomenal, the anti cheat just works great, any issues I have had was dealt directly with the developer and resolved within the hour. I would recommend anyone with any size server to switch to spartan.',
     ],
     [
