@@ -73,9 +73,8 @@ include('config.php');
             <div class="col-lg-12 text-center header-content">
 
                 <h1 data-aos="fade-up">Reviews</h1>
-                <p class="mb-5 term-desc" data-aos="fade-up">We have a large proven track record of successful customers
-                    who love our
-                    services. Take a look at some of the countless ones below.</p>
+                <p class="mb-5 term-desc" data-aos="fade-up">We have a large proven track record of happy customers
+                    who love our anti cheat. Take a look at some of the countless ones below.</p>
             </div>
         </div>
     </div>
