@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --background: #121014;
+    --primary-color: #B6A3CE;
+    --primary-color-rgb: 182, 163, 206;
+    --secondary-color: #8e75ad;
+    --div-color: #1C191E;
+    --text-primary: #FFFFFF;
+    --text-secondary: #AAAAAA;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--div-color)
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color)
+}
+
+#dots {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 100px;
+}
+
+h1 {
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 3.75rem;
+    letter-spacing: 0.045rem;
+    margin-bottom: 15px;
+}
+
+h1>span {
+    color: var(--primary-color);
+}
+
+p {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 2.8125rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.header-img {
+    object-fit: cover;
+}
+
+.container {
+    max-width: 1120px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.primary-button {
+    padding: 12px 30px;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    border: 2px solid var(--primary-color);
+    border-radius: 100px;
+    color: var(--text-primary);
+    transition: 0.3s all;
+}
+
+.primary-button:hover {
+    background: var(--primary-color);
+}
+
+.no-border {
+    border: 2px solid transparent;
+}
+
+.no-border:hover {
+    background: none;
+    border: 2px solid var(--primary-color);
+}
+
+.header-alert {
+    width: fit-content;
+    background: rgba(var(--primary-color-rgb), 0.2);
+    border-radius: 100px;
+    padding: 5px;
+    padding-right: 15px;
+    margin-bottom: 15px;
+}
+
+.header-alert>img {
+    background: var(--primary-color);
+    border-radius: 100px;
+    padding: 3px 4px;
+}
+
+.header-alert>p {
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--primary-color);
+}
+
+header {
+    margin-bottom: 150px;
+    background: linear-gradient(180deg, rgba(18, 16, 20, 0.97) 0%, #121014 100%), url('../img/mtfuji.png'), no-repeat;
+    padding-top: 50px;
+    height: 100%;
+    z-index: 3;
+    position: relative;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+main {
+    position: relative;
+    z-index: 3;
+}
+
+.nav-links {
+    margin: 0 25px;
+}
+
+.nav-links>a {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    color: var(--text-primary);
+    letter-spacing: 0.02rem;
+    transition: 0.3s all;
+}
+
+.nav-links>a:hover {
+    color: var(--primary-color);
+}
+
+.navbar {
+    margin-bottom: 150px;
+    z-index: 3;
+    position: relative;
+}
+
+.header-content {
+        z-index: 3;
+    position: relative;
+}
+
+section {
+    margin-top: 150px;
+}
+
+h2 {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.75rem;
+    margin-bottom: 10px;
+    letter-spacing: -0.04rem;
+}
+
+.feature-div {
+    padding: 20px;
+    border-radius: 8px;
+    background: var(--div-color);
+}
+
+.section-titles {
+    margin-bottom: 50px;
+}
+
+h3 {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.feature-div>p {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.875rem;
+}
+
+.feature-icon {
+    border-radius: 5px;
+    background: var(--primary-color);
+    width: fit-content;
+    padding: 12px;
+}
+
+.product-div {
+    background: var(--div-color);
+    border-radius: 8px;
+}
+
+.product-body {
+    padding: 15px;
+}
+
+.product-div > img {
+    width: 100%;
+    height: 100%;
+    max-height: 170px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.seperator {
+    width: 1px;
+    height: 15px;
+    background: var(--primary-color);
+}
+
+.product-buy {
+    background: rgba(var(--primary-color-rgb), 0.3);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 8px;
+    width: 100%;
+    color: var(--text-primary);
+    transition: 0.3s all;
+}
+
+.product-buy:hover {
+    background: var(--primary-color);
+}
+
+.term-desc {
+    max-width: 750px;
+    margin: auto;
+}
+
+.term {
+    margin-bottom: 30px;
+}
+
+.review {
+    padding: 30px;
+    background: var(--div-color);
+    border-radius: 8px;
+    height: 100%;
+}
+
+.review-user {
+    color: var(--primary-text);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.catbtn {
+    padding: 5px 15px;
+    margin: 0 5px;
+    margin-bottom: 20px!important;
+    border: none;
+    transition: 0.3s all;
+    border-radius: 8px;
+    background: var(--div-color);
+    color: var(--text-primary);
+}
+
+.catbtn:hover {
+    color: var(--primary-color);
+}
+
+.active {
+    background: var(--primary-color);
+}
+
+@media screen and (max-width: 900px) {
+    .nav-links {
+        margin-top: 20px;
+    }
+}
