@@ -14,7 +14,9 @@ $logo = '.././assets/img/logo.png';
 $navlinks = [
     'Home' => '/',
     'Reviews' => '/reviews',
+    'Contributors' => '/contributors',
     'Discord' => '/discord',
+    'Stats' => '/stats',
     'Documentation' => '/documentation',
     'Videos' => '/videos'
 ];
@@ -551,6 +553,187 @@ $reviews = [
         'review' => 'Works great, dev is very responsive - especially considering the numerous quantity of my questions and questionable responsibility for him to even answer. Nice plugin, nice dev, good support. Well worth the money.',
     ]
 ];
+
+// Contributors
+$discord_link = 'https://spartan.top/discord';
+$contributors = [
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Notaviable',
+        'role' => 'Client Developer',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'SaubereSacheLP',
+        'role' => 'Client Developer',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Rhys',
+        'role' => 'Reverse Engineer',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Pawsashatoy',
+        'role' => 'Java Senior Developer',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'GRArthas',
+        'role' => 'Resigned Owner',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Johand',
+        'role' => 'Community Admin',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Guerryer',
+        'role' => 'Community Admin',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Alexcrafter',
+        'role' => 'Community Admin',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'hoi66',
+        'role' => 'Community Admin',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Barpad',
+        'role' => 'Community Moderator',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Luis',
+        'role' => 'Community Moderator',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'MinecraftSGP',
+        'role' => 'Community Moderator',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'SuchBlue',
+        'role' => 'Community Moderator',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Aqua',
+        'role' => 'Community Moderator',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Kaspian',
+        'role' => 'Community Moderator',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Roadhog360',
+        'role' => 'Community Moderator',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Zelo',
+        'role' => 'Community Moderator',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Zelo',
+        'role' => 'Community Moderator',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'DasCanard',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'nur1popcorn',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Nyrox',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'DieselJS',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'TheRobLP',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Tjuli',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Toshka',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Yenil',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Norhu1130',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'TheTigerPython',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'DukeinPro',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Henrinks9',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'Electrum',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'CatGPT',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'loving11ish',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'train21',
+        'role' => 'General Help',
+    ],
+    [
+        'picture' => '.././assets/img/picture.png',
+        'name' => 'DarksideCode',
+        'role' => 'General Help',
+    ]
+];
+
 
 // Terms 
 $terms = [];
