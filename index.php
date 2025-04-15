@@ -5,6 +5,8 @@ include('config.php');
 <html lang="en">
 
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2051186056820234"
+            crossorigin="anonymous"></script>
     <title><?= $website_title ?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

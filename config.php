@@ -65,7 +65,7 @@ $features = [
 
 // Products
 $displayUnlisted = false;
-$currency = '$';
+$currency = '';
 
 // Reviews
 $store_link = 'https://builtbybit.com/resources/11196/reviews';
@@ -561,8 +561,8 @@ $products = [
         'products' => [
             [
                 'uniqid' => '1',
-                'title' => 'Spartan AntiCheat for Java',
-                'price_display' => '21.99 / year',
+                'title' => 'Spartan: Java / Bukkit Edition',
+                'price_display' => 'Annually',
                 'purchase_url' => 'https://builtbybit.com/resources/11196',
                 'unlisted' => false,
                 'private' => false,
@@ -575,8 +575,8 @@ $products = [
             ],
             [
                 'uniqid' => '2',
-                'title' => 'Spartan AntiCheat for Bedrock',
-                'price_display' => '21.99 / year',
+                'title' => 'Spartan: Bedrock / Geyser Edition',
+                'price_display' => 'Annually',
                 'purchase_url' => 'https://builtbybit.com/resources/12832',
                 'unlisted' => false,
                 'private' => false,
@@ -589,8 +589,8 @@ $products = [
             ],
             [
                 'uniqid' => '3',
-                'title' => 'Spartan AntiCheat for Java',
-                'price_display' => '4.99 / month',
+                'title' => 'Spartan: Java / Bukkit Edition',
+                'price_display' => 'Monthly',
                 'purchase_url' => 'https://www.patreon.com/checkout/SpartanAntiCheat?rid=25600830',
                 'unlisted' => false,
                 'private' => false,
@@ -603,8 +603,8 @@ $products = [
             ],
             [
                 'uniqid' => '4',
-                'title' => 'Spartan AntiCheat for Bedrock',
-                'price_display' => '4.99 / month',
+                'title' => 'Spartan: Bedrock / Geyser Edition',
+                'price_display' => 'Monthly',
                 'purchase_url' => 'https://www.patreon.com/checkout/SpartanAntiCheat?rid=25600831',
                 'unlisted' => false,
                 'private' => false,
@@ -618,7 +618,7 @@ $products = [
             [
                 'uniqid' => '5',
                 'title' => 'Spartan: Java & Bedrock Edition',
-                'price_display' => '6.99 / month',
+                'price_display' => 'Monthly',
                 'purchase_url' => 'https://www.patreon.com/checkout/SpartanAntiCheat?rid=25600775',
                 'unlisted' => false,
                 'private' => false,
