@@ -28,8 +28,6 @@ include('config.php');
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <script src="./assets/js/particles.min.js"></script>
-    <script src="https://cdn.sellix.io/static/js/embed.js"></script>
-    <link href="https://cdn.sellix.io/static/css/embed.css" rel="stylesheet"/>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
