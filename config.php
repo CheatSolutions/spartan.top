@@ -13,6 +13,7 @@ $website_color = '#FFFFFF';
 $logo = '.././assets/img/logo.png';
 $navlinks = [
     'Home' => '/',
+    '<b>Download</b>' => '/download',
     'Reviews' => '/reviews',
     'Contributors' => '/contributors',
     'Discord' => '/discord',
