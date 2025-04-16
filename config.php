@@ -17,7 +17,6 @@ $navlinks = [
     'Reviews' => '/reviews',
     'Contributors' => '/contributors',
     'Discord' => '/discord',
-    'Stats' => '/stats',
     'Documentation' => '/documentation',
     'Videos' => '/videos'
 ];
@@ -745,8 +744,8 @@ $products = [
         'products' => [
             [
                 'uniqid' => '1',
-                'title' => 'Spartan: Java / Bukkit Edition',
-                'price_display' => 'Annually',
+                'title' => 'Java / Bukkit Edition (Annually)',
+                'price_display' => 'BuiltByBit',
                 'purchase_url' => 'https://builtbybit.com/resources/11196',
                 'unlisted' => false,
                 'private' => false,
@@ -759,8 +758,8 @@ $products = [
             ],
             [
                 'uniqid' => '2',
-                'title' => 'Spartan: Bedrock / Geyser Edition',
-                'price_display' => 'Annually',
+                'title' => 'Bedrock / Geyser Edition (Annually)',
+                'price_display' => 'BuiltByBit',
                 'purchase_url' => 'https://builtbybit.com/resources/12832',
                 'unlisted' => false,
                 'private' => false,
@@ -773,9 +772,9 @@ $products = [
             ],
             [
                 'uniqid' => '3',
-                'title' => 'Spartan: Java / Bukkit Edition',
-                'price_display' => 'Monthly',
-                'purchase_url' => 'https://www.patreon.com/checkout/SpartanAntiCheat?rid=25600830',
+                'title' => 'Java / Bukkit Edition (Monthly)',
+                'price_display' => 'Patreon',
+                'purchase_url' => 'https://www.patreon.com/SpartanAntiCheat',
                 'unlisted' => false,
                 'private' => false,
                 'image' => '.././assets/img/banner_java.png',
@@ -787,9 +786,9 @@ $products = [
             ],
             [
                 'uniqid' => '4',
-                'title' => 'Spartan: Bedrock / Geyser Edition',
-                'price_display' => 'Monthly',
-                'purchase_url' => 'https://www.patreon.com/checkout/SpartanAntiCheat?rid=25600831',
+                'title' => 'Bedrock / Geyser Edition (Monthly)',
+                'price_display' => 'Patreon',
+                'purchase_url' => 'https://www.patreon.com/SpartanAntiCheat',
                 'unlisted' => false,
                 'private' => false,
                 'image' => '.././assets/img/banner_bedrock.png',
@@ -801,15 +800,29 @@ $products = [
             ],
             [
                 'uniqid' => '5',
-                'title' => 'Spartan: Java & Bedrock Edition',
-                'price_display' => 'Monthly',
-                'purchase_url' => 'https://www.patreon.com/checkout/SpartanAntiCheat?rid=25600775',
+                'title' => 'Java & Bedrock Edition (Monthly)',
+                'price_display' => 'Patreon',
+                'purchase_url' => 'https://www.patreon.com/SpartanAntiCheat',
                 'unlisted' => false,
                 'private' => false,
                 'image' => '.././assets/img/banner.png',
                 'categories' => [
                     [
                         'title' => 'Patreon'
+                    ]
+                ]
+            ],
+            [
+                'uniqid' => '6',
+                'title' => 'Pay Only What You Need',
+                'price_display' => 'Fill out form',
+                'purchase_url' => 'https://spartan.top/offer',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '.././assets/img/banner.png',
+                'categories' => [
+                    [
+                        'title' => 'Pay Only What You Need'
                     ]
                 ]
             ]
