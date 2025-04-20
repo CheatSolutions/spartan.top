@@ -150,7 +150,7 @@ include('config.php');
                                 <p><?= $product['title']; ?></p>
                                 <a href="<?= $product['purchase_url']; ?>"
                                    class="z mt-3 product-buy d-flex align-items-center justify-content-center gap-3 pointer"
-                                   data-sellix-product="<?= $product['uniqid'] ?>">Purchase
+                                   data-sellix-product="<?= $product['uniqid'] ?>"><?= $product['purchase_description'] ?>
                                     <div class="seperator"></div> <?= $currency . $product['price_display'] ?></a>
                             </div>
                         </div>
