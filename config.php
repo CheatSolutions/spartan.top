@@ -815,21 +815,6 @@ $products = [
                         'title' => 'Patreon'
                     ]
                 ]
-            ],
-            [
-                'uniqid' => '6',
-                'title' => 'Pay Only What You Need',
-                'price_display' => 'Fill out form',
-                'purchase_url' => 'https://spartan.top/offer',
-                'purchase_description' => 'Offer',
-                'unlisted' => false,
-                'private' => false,
-                'image' => '.././assets/img/banner.png',
-                'categories' => [
-                    [
-                        'title' => 'Pay Only What You Need'
-                    ]
-                ]
             ]
         ]
     ],
