@@ -815,6 +815,21 @@ $products = [
                         'title' => 'Patreon'
                     ]
                 ]
+            ],
+            [
+                'uniqid' => '6',
+                'title' => 'SpigotMC Buyers',
+                'price_display' => 'SpigotMC -> BuiltByBit',
+                'purchase_url' => 'https://spartan.top/discord',
+                'purchase_description' => 'Transfer',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '.././assets/img/banner.png',
+                'categories' => [
+                    [
+                        'title' => 'Patreon'
+                    ]
+                ]
             ]
         ]
     ],
