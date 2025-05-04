@@ -827,7 +827,7 @@ $products = [
                 'image' => '.././assets/img/banner.png',
                 'categories' => [
                     [
-                        'title' => 'Patreon'
+                        'title' => 'SpigotMC -> BuiltByBit Transfers'
                     ]
                 ]
             ]

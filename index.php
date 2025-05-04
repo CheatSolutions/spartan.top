@@ -78,7 +78,7 @@ include('config.php');
 
                 <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
                     <a class="primary-button no-border" href="#about">Learn More</a>
-                    <a class="primary-button" href="#products">Buy Yours Today</a>
+                    <a class="primary-button" href="#products">Buy or Try Yours Today!</a>
                 </div>
             </div>
 
