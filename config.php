@@ -773,6 +773,36 @@ $products = [
             ],
             [
                 'uniqid' => '3',
+                'title' => 'Java / Bukkit Edition (Annually)',
+                'price_display' => 'Polymart',
+                'purchase_url' => 'https://polymart.org/product/350',
+                'purchase_description' => 'Purchase',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '.././assets/img/banner_java.png',
+                'categories' => [
+                    [
+                        'title' => 'Polymart'
+                    ]
+                ]
+            ],
+            [
+                'uniqid' => '4',
+                'title' => 'Bedrock / Geyser Edition (Annually)',
+                'price_display' => 'Polymart',
+                'purchase_url' => 'https://polymart.org/product/3600',
+                'purchase_description' => 'Purchase',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '.././assets/img/banner_bedrock.png',
+                'categories' => [
+                    [
+                        'title' => 'Polymart'
+                    ]
+                ]
+            ],
+            [
+                'uniqid' => '5',
                 'title' => 'Java / Bukkit Edition (Monthly)',
                 'price_display' => 'Patreon',
                 'purchase_url' => 'https://www.patreon.com/SpartanAntiCheat/redeem/228F7',
@@ -787,7 +817,7 @@ $products = [
                 ]
             ],
             [
-                'uniqid' => '4',
+                'uniqid' => '6',
                 'title' => 'Bedrock / Geyser Edition (Monthly)',
                 'price_display' => 'Patreon',
                 'purchase_url' => 'https://www.patreon.com/SpartanAntiCheat/redeem/75200',
@@ -802,7 +832,7 @@ $products = [
                 ]
             ],
             [
-                'uniqid' => '5',
+                'uniqid' => '7',
                 'title' => 'Java & Bedrock Edition (Monthly)',
                 'price_display' => 'Patreon',
                 'purchase_url' => 'https://www.patreon.com/SpartanAntiCheat/redeem/90EDA',
@@ -817,7 +847,7 @@ $products = [
                 ]
             ],
             [
-                'uniqid' => '6',
+                'uniqid' => '8',
                 'title' => 'SpigotMC Buyers',
                 'price_display' => 'SpigotMC -> BuiltByBit',
                 'purchase_url' => 'https://spartan.top/discord',
