@@ -126,7 +126,7 @@ include('config.php');
             <div class="row">
                 <div class="col-12 text-center section-titles z" data-aos="fade-up">
                     <h2>Explore our offers</h2>
-                    <p>We recommend selecting the category of offers that interest you.</p>
+                    <p>We recommend selecting the category of offers that interests you.</p>
                 </div>
             </div>
 
