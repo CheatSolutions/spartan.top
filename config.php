@@ -743,73 +743,73 @@ $products = [
         'products' => [
             [
                 'uniqid' => '1',
-                'title' => 'Java / Bukkit Edition (Annually)',
-                'price_display' => 'BuiltByBit',
+                'title' => 'BuiltByBit (Formally MC-Market)',
+                'price_display' => '21.99 USD',
                 'purchase_url' => 'https://builtbybit.com/resources/11196',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
                 'private' => false,
-                'image' => '.././assets/img/banner_java.png',
+                'image' => '',
                 'categories' => [
                     [
-                        'title' => 'BuiltByBit (Formally MC-Market)'
+                        'title' => 'Java / Bukkit Edition'
                     ]
                 ]
             ],
             [
                 'uniqid' => '2',
-                'title' => 'Bedrock / Geyser Edition (Annually)',
-                'price_display' => 'BuiltByBit',
+                'title' => 'BuiltByBit (Formally MC-Market)',
+                'price_display' => '13.99 USD',
                 'purchase_url' => 'https://builtbybit.com/resources/12832',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
                 'private' => false,
-                'image' => '.././assets/img/banner_bedrock.png',
+                'image' => '',
                 'categories' => [
                     [
-                        'title' => 'BuiltByBit (Formally MC-Market)'
+                        'title' => 'Bedrock / Geyser Edition'
                     ]
                 ]
             ],
             [
                 'uniqid' => '3',
-                'title' => 'Java / Bukkit Edition (Annually)',
-                'price_display' => 'Polymart',
+                'title' => 'Polymart',
+                'price_display' => '19.99 EUR',
                 'purchase_url' => 'https://polymart.org/product/350',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
                 'private' => false,
-                'image' => '.././assets/img/banner_java.png',
+                'image' => '',
                 'categories' => [
                     [
-                        'title' => 'Polymart'
+                        'title' => 'Java / Bukkit Edition'
                     ]
                 ]
             ],
             [
                 'uniqid' => '4',
-                'title' => 'Bedrock / Geyser Edition (Annually)',
-                'price_display' => 'Polymart',
+                'title' => 'Polymart',
+                'price_display' => '19.99 EUR',
                 'purchase_url' => 'https://polymart.org/product/3600',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
                 'private' => false,
-                'image' => '.././assets/img/banner_bedrock.png',
+                'image' => '',
                 'categories' => [
                     [
-                        'title' => 'Polymart'
+                        'title' => 'Bedrock / Geyser Edition'
                     ]
                 ]
             ],
             [
                 'uniqid' => '5',
-                'title' => 'Java / Bukkit Edition (Monthly)',
+                'title' => 'Java / Bukkit Edition',
                 'price_display' => 'Patreon',
                 'purchase_url' => 'https://www.patreon.com/SpartanAntiCheat',
                 'purchase_description' => '1 Week Free!',
-                'unlisted' => false,
+                'unlisted' => true,
                 'private' => false,
-                'image' => '.././assets/img/banner_java.png',
+                'image' => '',
                 'categories' => [
                     [
                         'title' => 'Patreon'
@@ -818,13 +818,13 @@ $products = [
             ],
             [
                 'uniqid' => '6',
-                'title' => 'Bedrock / Geyser Edition (Monthly)',
+                'title' => 'Bedrock / Geyser Edition',
                 'price_display' => 'Patreon',
                 'purchase_url' => 'https://www.patreon.com/SpartanAntiCheat',
                 'purchase_description' => '1 Week Free!',
-                'unlisted' => false,
+                'unlisted' => true,
                 'private' => false,
-                'image' => '.././assets/img/banner_bedrock.png',
+                'image' => '',
                 'categories' => [
                     [
                         'title' => 'Patreon'
@@ -833,13 +833,13 @@ $products = [
             ],
             [
                 'uniqid' => '7',
-                'title' => 'Java & Bedrock Edition (Monthly)',
+                'title' => 'Java & Bedrock Edition',
                 'price_display' => 'Patreon',
                 'purchase_url' => 'https://www.patreon.com/SpartanAntiCheat',
                 'purchase_description' => '1 Week Free!',
-                'unlisted' => false,
+                'unlisted' => true,
                 'private' => false,
-                'image' => '.././assets/img/banner.png',
+                'image' => '',
                 'categories' => [
                     [
                         'title' => 'Patreon'
@@ -854,10 +854,40 @@ $products = [
                 'purchase_description' => 'Transfer',
                 'unlisted' => false,
                 'private' => false,
-                'image' => '.././assets/img/banner.png',
+                'image' => '',
                 'categories' => [
                     [
-                        'title' => 'SpigotMC -> BuiltByBit Transfers'
+                        'title' => 'SpigotMC > BuiltByBit Transfers'
+                    ]
+                ]
+            ],
+            [
+                'uniqid' => '9',
+                'title' => 'PayPal',
+                'price_display' => '19.99 EUR',
+                'purchase_url' => 'https://www.paypal.com/ncp/payment/EVXKXBD6M5XPC',
+                'purchase_description' => 'Purchase',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '',
+                'categories' => [
+                    [
+                        'title' => 'Java / Bukkit Edition'
+                    ]
+                ]
+            ],
+            [
+                'uniqid' => '10',
+                'title' => 'Stripe',
+                'price_display' => '19.99 EUR',
+                'purchase_url' => 'https://buy.stripe.com/14k9B4aFj8cJal23cm',
+                'purchase_description' => 'Purchase',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '',
+                'categories' => [
+                    [
+                        'title' => 'Java / Bukkit Edition'
                     ]
                 ]
             ]
