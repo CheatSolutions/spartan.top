@@ -789,7 +789,7 @@ $products = [
             [
                 'uniqid' => '4',
                 'title' => 'Polymart',
-                'price_display' => '19.99 EUR',
+                'price_display' => '12.49 EUR',
                 'purchase_url' => 'https://polymart.org/product/3600',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
@@ -888,6 +888,36 @@ $products = [
                 'categories' => [
                     [
                         'title' => 'Java / Bukkit Edition'
+                    ]
+                ]
+            ],
+            [
+                'uniqid' => '9',
+                'title' => 'PayPal',
+                'price_display' => '12.49 EUR',
+                'purchase_url' => 'https://www.paypal.com/ncp/payment/3LFF8MV56H6W4',
+                'purchase_description' => 'Purchase',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '',
+                'categories' => [
+                    [
+                        'title' => 'Bedrock / Geyser Edition'
+                    ]
+                ]
+            ],
+            [
+                'uniqid' => '9',
+                'title' => 'Stripe',
+                'price_display' => '12.49 EUR',
+                'purchase_url' => '#',
+                'purchase_description' => 'Stripe',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '',
+                'categories' => [
+                    [
+                        'title' => 'Bedrock / Geyser Edition'
                     ]
                 ]
             ]
