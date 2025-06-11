@@ -744,7 +744,7 @@ $products = [
             [
                 'uniqid' => '1',
                 'title' => 'BuiltByBit (Formally MC-Market)',
-                'price_display' => '21.99 USD',
+                'price_display' => '24.99 USD',
                 'purchase_url' => 'https://builtbybit.com/resources/11196',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
@@ -752,29 +752,14 @@ $products = [
                 'image' => '',
                 'categories' => [
                     [
-                        'title' => 'Java / Bukkit Edition'
-                    ]
-                ]
-            ],
-            [
-                'uniqid' => '2',
-                'title' => 'BuiltByBit (Formally MC-Market)',
-                'price_display' => '13.99 USD',
-                'purchase_url' => 'https://builtbybit.com/resources/12832',
-                'purchase_description' => 'Purchase',
-                'unlisted' => false,
-                'private' => false,
-                'image' => '',
-                'categories' => [
-                    [
-                        'title' => 'Bedrock / Geyser Edition'
+                        'title' => 'Full Edition (Java & Bedrock)'
                     ]
                 ]
             ],
             [
                 'uniqid' => '3',
                 'title' => 'Polymart',
-                'price_display' => '19.99 EUR',
+                'price_display' => '24.99 USD',
                 'purchase_url' => 'https://polymart.org/product/350',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
@@ -782,22 +767,7 @@ $products = [
                 'image' => '',
                 'categories' => [
                     [
-                        'title' => 'Java / Bukkit Edition'
-                    ]
-                ]
-            ],
-            [
-                'uniqid' => '4',
-                'title' => 'Polymart',
-                'price_display' => '12.49 EUR',
-                'purchase_url' => 'https://polymart.org/product/3600',
-                'purchase_description' => 'Purchase',
-                'unlisted' => false,
-                'private' => false,
-                'image' => '',
-                'categories' => [
-                    [
-                        'title' => 'Bedrock / Geyser Edition'
+                        'title' => 'Full Edition (Java & Bedrock)'
                     ]
                 ]
             ],
@@ -872,7 +842,7 @@ $products = [
                 'image' => '',
                 'categories' => [
                     [
-                        'title' => 'Java / Bukkit Edition'
+                        'title' => 'Full Edition (Java & Bedrock)'
                     ]
                 ]
             ],
@@ -887,37 +857,7 @@ $products = [
                 'image' => '',
                 'categories' => [
                     [
-                        'title' => 'Java / Bukkit Edition'
-                    ]
-                ]
-            ],
-            [
-                'uniqid' => '9',
-                'title' => 'PayPal',
-                'price_display' => '12.49 EUR',
-                'purchase_url' => 'https://www.paypal.com/ncp/payment/3LFF8MV56H6W4',
-                'purchase_description' => 'Purchase',
-                'unlisted' => false,
-                'private' => false,
-                'image' => '',
-                'categories' => [
-                    [
-                        'title' => 'Bedrock / Geyser Edition'
-                    ]
-                ]
-            ],
-            [
-                'uniqid' => '9',
-                'title' => 'Stripe',
-                'price_display' => '12.49 EUR',
-                'purchase_url' => 'https://buy.stripe.com/3cI9ATbUN3dJgH8g3LfUQ0b',
-                'purchase_description' => 'Stripe',
-                'unlisted' => false,
-                'private' => false,
-                'image' => '',
-                'categories' => [
-                    [
-                        'title' => 'Bedrock / Geyser Edition'
+                        'title' => 'Full Edition (Java & Bedrock)'
                     ]
                 ]
             ]
