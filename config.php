@@ -834,7 +834,7 @@ $products = [
             [
                 'uniqid' => '9',
                 'title' => 'PayPal',
-                'price_display' => '19.99 EUR',
+                'price_display' => '21.99 EUR',
                 'purchase_url' => 'https://www.paypal.com/ncp/payment/EVXKXBD6M5XPC',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
@@ -849,8 +849,8 @@ $products = [
             [
                 'uniqid' => '10',
                 'title' => 'Stripe',
-                'price_display' => '19.99 EUR',
-                'purchase_url' => 'https://buy.stripe.com/14k9B4aFj8cJal23cm',
+                'price_display' => '21.99 EUR',
+                'purchase_url' => 'https://buy.stripe.com/28E9AVadcapIeUSaPwbEA08',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
                 'private' => false,
