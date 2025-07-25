@@ -834,8 +834,8 @@ $products = [
             [
                 'uniqid' => '9',
                 'title' => 'PayPal',
-                'price_display' => '21.99 EUR',
-                'purchase_url' => 'https://www.paypal.com/ncp/payment/EVXKXBD6M5XPC',
+                'price_display' => '21.99 EUR (Approx. 25 USD)',
+                'purchase_url' => 'https://spartan.top/paypal',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
                 'private' => false,
@@ -849,8 +849,23 @@ $products = [
             [
                 'uniqid' => '10',
                 'title' => 'Stripe',
-                'price_display' => '21.99 EUR',
-                'purchase_url' => 'https://buy.stripe.com/aFafZg9jR8hG6fDcTPgfu00',
+                'price_display' => '21.99 EUR (Approx. 25 USD)',
+                'purchase_url' => 'https://spartan.top/stripe',
+                'purchase_description' => 'Purchase',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '',
+                'categories' => [
+                    [
+                        'title' => 'Full Edition (Java & Bedrock)'
+                    ]
+                ]
+            ],
+            [
+                'uniqid' => '11',
+                'title' => 'Tebex (Formerly Buycraft)',
+                'price_display' => '21.99 EUR (Approx. 25 USD)',
+                'purchase_url' => 'https://spartan.top/tebex',
                 'purchase_description' => 'Purchase',
                 'unlisted' => false,
                 'private' => false,
