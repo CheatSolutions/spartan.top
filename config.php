@@ -818,21 +818,6 @@ $products = [
             ],
             [
                 'uniqid' => '8',
-                'title' => 'SpigotMC Buyers',
-                'price_display' => 'SpigotMC > BuiltByBit',
-                'purchase_url' => 'https://spartan.top/discord',
-                'purchase_description' => 'Transfer',
-                'unlisted' => false,
-                'private' => false,
-                'image' => '',
-                'categories' => [
-                    [
-                        'title' => 'SpigotMC > BuiltByBit Transfers'
-                    ]
-                ]
-            ],
-            [
-                'uniqid' => '9',
                 'title' => 'PayPal',
                 'price_display' => '21.99 EUR (Approx. 25 USD)',
                 'purchase_url' => 'https://spartan.top/paypal',
@@ -847,7 +832,7 @@ $products = [
                 ]
             ],
             [
-                'uniqid' => '10',
+                'uniqid' => '9',
                 'title' => 'Stripe',
                 'price_display' => '21.99 EUR (Approx. 25 USD)',
                 'purchase_url' => 'https://spartan.top/stripe',
@@ -862,7 +847,7 @@ $products = [
                 ]
             ],
             [
-                'uniqid' => '11',
+                'uniqid' => '10',
                 'title' => 'Tebex (Formerly Buycraft)',
                 'price_display' => '21.99 EUR (Approx. 25 USD)',
                 'purchase_url' => 'https://spartan.top/tebex',
@@ -873,6 +858,21 @@ $products = [
                 'categories' => [
                     [
                         'title' => 'Full Edition (Java & Bedrock)'
+                    ]
+                ]
+            ],
+            [
+                'uniqid' => '11',
+                'title' => 'SpigotMC Buyers',
+                'price_display' => 'SpigotMC > BuiltByBit',
+                'purchase_url' => 'https://spartan.top/discord',
+                'purchase_description' => 'Transfer',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '',
+                'categories' => [
+                    [
+                        'title' => 'SpigotMC > BuiltByBit Transfers'
                     ]
                 ]
             ]
