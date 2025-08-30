@@ -21,6 +21,7 @@ include('config.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="<?= $website_icon ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= $website_icon ?>">
     <meta name="title" content="<?= $website_title ?>">
     <meta name="description" content="<?= $website_description ?>">
     <meta name="theme-color" coontent="<?= $website_color ?>">
