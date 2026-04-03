@@ -758,9 +758,9 @@ $products = [
             ],
             [
                 'uniqid' => '3',
-                'title' => 'Polymart',
+                'title' => 'Voxel (Formally Polymart)',
                 'price_display' => '24.99 USD',
-                'purchase_url' => 'https://polymart.org/product/350',
+                'purchase_url' => 'https://voxel.shop/product/350',
                 'purchase_description' => 'Purchase',
                 'unlisted' => true,
                 'private' => false,
