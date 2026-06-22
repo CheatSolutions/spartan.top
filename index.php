@@ -5,6 +5,8 @@ include('config.php');
 <html lang="en">
 
 <head>
+    <script src='https://www.idealistic.ai/.scripts/v1/portal.js' data-portal='8jfKNAFjqn86yiLI' id='idealistic-script'
+            defer></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2051186056820234"
             crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
