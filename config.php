@@ -23,7 +23,7 @@ $navlinks = [
 // Header
 $alert = 'A buyer\'s favorite since year 2016';
 $h1 = 'Spartan AntiCheat - <span>For Java & Bedrock servers</span>';
-$description = 'The longest living Minecraft paid anti cheat!';
+$description = 'The longest living Minecraft paid anti cheat! <a href="https://modrinth.com/plugin/spartan-anticheat">(Free with 10 or less players)</a>';
 
 // Features
 $enable_features = true;
