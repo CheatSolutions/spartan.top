@@ -1,32 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --background: #121014;
+    --background: #0d0b0f; /* Ελαφρώς πιο βαθύ σκοτεινό χρώμα για καλύτερη αντίθεση */
     --primary-color: #B6A3CE;
     --primary-color-rgb: 182, 163, 206;
     --secondary-color: #8e75ad;
-    --div-color: #1C191E;
+    --div-color: #16141a;
+    --border-color: rgba(255, 255, 255, 0.05); /* Διακριτικό περίγραμμα για τις κάρτες */
     --text-primary: #FFFFFF;
-    --text-secondary: #AAAAAA;
+    --text-secondary: #B0B0B0;
+
+    /* Νέες μεταβλητές για ομοιομορφία */
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-pill: 100px;
 }
 
+/* ================== SCROLLBAR ================== */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--div-color)
+    background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 100px;
+    background: rgba(var(--primary-color-rgb), 0.5);
+    border-radius: var(--radius-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color)
+    background: var(--primary-color);
 }
 
+/* ================== BASE STYLES ================== */
 #dots {
     height: 100%;
     width: 100%;
@@ -34,6 +43,7 @@
     top: 0;
     left: 0;
     z-index: 2;
+    pointer-events: none; /* Αποτρέπει το να μπλοκάρουν τα dots τα κλικ */
 }
 
 body {
@@ -41,56 +51,148 @@ body {
     color: var(--text-primary);
     font-family: 'Montserrat', sans-serif;
     padding-bottom: 100px;
-}
-
-h1 {
-    font-size: 2.25rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 3.75rem;
-    letter-spacing: 0.045rem;
-    margin-bottom: 15px;
-}
-
-h1>span {
-    color: var(--primary-color);
-}
-
-p {
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 2.8125rem;
-    color: var(--text-secondary);
     margin: 0;
-}
-
-.header-img {
-    object-fit: cover;
+    -webkit-font-smoothing: antialiased; /* Καλύτερη απόδοση κειμένου */
 }
 
 .container {
     max-width: 1120px;
+    margin: 0 auto; /* Κεντράρισμα container */
+    padding: 0 20px;
 }
 
 a {
     text-decoration: none;
+    transition: var(--transition);
 }
 
-.primary-button {
-    padding: 12px 30px;
+/* ================== TYPOGRAPHY ================== */
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive μέγεθος */
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.02rem;
+    margin-bottom: 20px;
+}
+
+h1 > span {
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(var(--primary-color-rgb), 0.3);
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    letter-spacing: -0.03rem;
+}
+
+h3 {
     font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 200;
-    line-height: normal;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400; /* Αύξηση από 300 για καλύτερη αναγνωσιμότητα */
+    line-height: 1.7; /* Διόρθωση του τεράστιου 2.8125rem */
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ================== HEADER & NAVIGATION ================== */
+header {
+    margin-bottom: 120px;
+    background: linear-gradient(180deg, rgba(13, 11, 15, 0.85) 0%, var(--background) 100%),
+    url('../img/mtfuji.png') center/cover no-repeat;
+    padding-top: 50px;
+    min-height: 60vh;
+    z-index: 3;
+    position: relative;
+    width: 100%;
+}
+
+.navbar {
+    margin-bottom: 100px;
+    z-index: 3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    margin: 0 25px;
+}
+
+.nav-links > a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02rem;
+    margin: 0 15px;
+}
+
+.nav-links > a:hover {
+    color: var(--primary-color);
+}
+
+.header-alert {
+    width: fit-content;
+    background: rgba(var(--primary-color-rgb), 0.1);
+    border: 1px solid rgba(var(--primary-color-rgb), 0.2);
+    backdrop-filter: blur(8px); /* Glassmorphism effect */
+    border-radius: var(--radius-pill);
+    padding: 6px 16px 6px 6px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-alert > img {
+    background: var(--primary-color);
+    border-radius: var(--radius-pill);
+    padding: 4px;
+    width: 20px;
+    height: 20px;
+}
+
+.header-alert > p {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.header-img {
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ================== BUTTONS ================== */
+.primary-button {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: transparent;
     border: 2px solid var(--primary-color);
-    border-radius: 100px;
+    border-radius: var(--radius-pill);
     color: var(--text-primary);
-    transition: 0.3s all;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
 .primary-button:hover {
     background: var(--primary-color);
+    color: var(--background);
+    box-shadow: 0 8px 24px rgba(var(--primary-color-rgb), 0.25);
+    transform: translateY(-2px);
 }
 
 .no-border {
@@ -98,207 +200,183 @@ a {
 }
 
 .no-border:hover {
-    background: none;
-    border: 2px solid var(--primary-color);
-}
-
-.header-alert {
-    width: fit-content;
-    background: rgba(var(--primary-color-rgb), 0.2);
-    border-radius: 100px;
-    padding: 5px;
-    padding-right: 15px;
-    margin-bottom: 15px;
-}
-
-.header-alert>img {
-    background: var(--primary-color);
-    border-radius: 100px;
-    padding: 3px 4px;
-}
-
-.header-alert>p {
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
     color: var(--primary-color);
+    box-shadow: none;
 }
 
-header {
-    margin-bottom: 150px;
-    background: linear-gradient(180deg, rgba(18, 16, 20, 0.97) 0%, #121014 100%), url('../img/mtfuji.png'), no-repeat;
-    padding-top: 50px;
-    height: 100%;
-    z-index: 3;
-    position: relative;
-    width: 100%;
-    background-repeat: no-repeat;
+.catbtn {
+    padding: 8px 20px;
+    margin: 0 6px 20px 0 !important;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    background: var(--div-color);
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
+.catbtn:hover {
+    color: var(--text-primary);
+    border-color: var(--primary-color);
+    background: rgba(var(--primary-color-rgb), 0.1);
+}
+
+.catbtn.active {
+    background: var(--primary-color);
+    color: var(--background);
+    border-color: var(--primary-color);
+}
+
+/* ================== CARDS & SECTIONS ================== */
 main {
     position: relative;
     z-index: 3;
 }
 
-.nav-links {
-    margin: 0 25px;
-}
-
-.nav-links>a {
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 200;
-    line-height: normal;
-    color: var(--text-primary);
-    letter-spacing: 0.02rem;
-    transition: 0.3s all;
-}
-
-.nav-links>a:hover {
-    color: var(--primary-color);
-}
-
-.navbar {
-    margin-bottom: 150px;
-    z-index: 3;
-    position: relative;
-}
-
-.header-content {
-        z-index: 3;
-    position: relative;
-}
-
 section {
-    margin-top: 150px;
-}
-
-h2 {
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 2.75rem;
-    margin-bottom: 10px;
-    letter-spacing: -0.04rem;
-}
-
-.feature-div {
-    padding: 20px;
-    border-radius: 8px;
-    background: var(--div-color);
+    margin-top: 120px;
 }
 
 .section-titles {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    text-align: center; /* Κεντράρισμα τίτλων για καλύτερη ισορροπία */
 }
 
-h3 {
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-top: 20px;
-    margin-bottom: 15px;
+/* Shared Card Styling */
+.feature-div, .product-div, .review {
+    background: var(--div-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
 }
 
-.feature-div>p {
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 1.875rem;
+.feature-div:hover, .product-div:hover, .review:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(var(--primary-color-rgb), 0.3);
+}
+
+/* Feature Div */
+.feature-div {
+    padding: 30px;
 }
 
 .feature-icon {
-    border-radius: 5px;
-    background: var(--primary-color);
-    width: fit-content;
-    padding: 12px;
+    border-radius: var(--radius-md);
+    background: rgba(var(--primary-color-rgb), 0.15);
+    color: var(--primary-color);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.product-div {
-    background: var(--div-color);
-    border-radius: 8px;
-}
-
+/* Product Div */
 .product-body {
-    padding: 15px;
+    padding: 20px;
 }
 
 .product-div > img {
     width: 100%;
-    height: 100%;
-    max-height: 170px;
+    height: 180px;
     object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-.seperator {
-    width: 1px;
-    height: 15px;
-    background: var(--primary-color);
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
 }
 
 .product-buy {
-    background: rgba(var(--primary-color-rgb), 0.3);
-    border: 1px solid var(--primary-color);
-    border-radius: 8px;
-    padding: 8px;
+    background: rgba(var(--primary-color-rgb), 0.15);
+    border: 1px solid rgba(var(--primary-color-rgb), 0.3);
+    border-radius: var(--radius-md);
+    padding: 12px;
     width: 100%;
     color: var(--text-primary);
-    transition: 0.3s all;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 15px;
 }
 
 .product-buy:hover {
     background: var(--primary-color);
+    color: var(--background);
 }
 
-.term-desc {
-    max-width: 750px;
-    margin: auto;
-}
-
-.term {
-    margin-bottom: 30px;
-}
-
+/* Review */
 .review {
     padding: 30px;
-    background: var(--div-color);
-    border-radius: 8px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .review-user {
-    color: var(--primary-text);
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* Utilities */
+.seperator {
+    width: 2px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 2px;
 }
 
 .pointer {
     cursor: pointer;
 }
 
-.catbtn {
-    padding: 5px 15px;
-    margin: 0 5px;
-    margin-bottom: 20px!important;
-    border: none;
-    transition: 0.3s all;
-    border-radius: 8px;
-    background: var(--div-color);
-    color: var(--text-primary);
+.term-desc {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.catbtn:hover {
-    color: var(--primary-color);
+.term {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.active {
-    background: var(--primary-color);
-}
-
+/* ================== MEDIA QUERIES ================== */
 @media screen and (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
     .nav-links {
-        margin-top: 20px;
+        margin: 20px 0 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-links > a {
+        margin: 0;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .header-alert {
+        margin: 0 auto 20px auto;
+    }
+
+    .header-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }

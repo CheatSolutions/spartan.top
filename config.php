@@ -33,33 +33,33 @@ $features_description = 'At least part of it, we bring a lot more!';
 $features = [
     [
         'icon' => '📈',
-        'title' => 'Guaranteed Life Expectancy',
-        'description' => 'Spartan is the longest living Minecraft paid anti cheat, with a history dating back to year 2016. Unlike other solutions, we are not a fly by night operation. We have been here for a long time and we will be here for a long time to come.'
+        'title' => 'Proven Longevity',
+        'description' => 'The longest-standing paid Minecraft anti-cheat, actively developed since 2016. A reliable, battle-tested solution built for the long term.'
     ],
     [
         'icon' => '🚀',
-        'title' => 'Full Detection Coverage',
-        'description' => 'Spartan has one of the most extensive detection coverage amongst Minecraft anti cheats. We have a large number of checks that cover a wide range of cheats such as combat, movement, world and more! You should expect that to only grow.'
+        'title' => 'Extensive Detection Coverage',
+        'description' => 'A constantly expanding arsenal of checks covering combat, movement, world interactions, and more to ensure absolute server protection.'
     ],
     [
         'icon' => '🔥',
-        'title' => 'Java & Bedrock/Geyser Support',
-        'description' => 'Spartan is within the very few anti cheats that have detections for both Java and Bedrock/Geyser. This means that you can use Spartan to detect cheats on both Java and Bedrock/Geyser servers. Sit back and relax, we got you covered!'
+        'title' => 'Java & Bedrock Support',
+        'description' => 'One of the rare anti-cheats offering native, simultaneous cheat detection for both Java and Bedrock (via Geyser) players. 2 birds with 1 stone!'
     ],
     [
         'icon' => '📦',
-        'title' => 'Super Cross Version',
-        'description' => 'Spartan supports 1.7 up to the latest version of Minecraft. This means that you can use Spartan on any version of Minecraft, from 1.7 to the latest version. We are always up to date with the latest versions of Minecraft and we will always be!'
+        'title' => 'Universal Compatibility',
+        'description' => 'Seamlessly supports every Minecraft version from 1.7 up to the latest release, with guaranteed updates for new Minecraft versions.'
     ],
     [
         'icon' => '🛠',
-        'title' => 'Easiest to Use',
-        'description' => 'Yes, you read that right! Spartan is the easiest to use anti cheat. We have a straightforward GUI and configurations that allows you to adjust Spartan instantly. Of course we also offer advanced options for those who want to go the extra mile.'
+        'title' => 'Effortless Setup',
+        'description' => 'Deploy instantly using our intuitive in-game GUI and simple configs, while retaining deep customization options for advanced users.'
     ],
     [
         'icon' => '🤝',
-        'title' => 'Supportive Community',
-        'description' => 'Spartan has a supportive community that is always willing to help. We have a large number of users that are always willing to help out. We also offer documentation, Discord support, Email support, AI support and more!'
+        'title' => 'Comprehensive Support',
+        'description' => 'Backed by a massive, active community and multi-channel assistance including thorough documentation, Discord, Email, and AI support.'
     ]
 ];
 
