@@ -161,10 +161,21 @@ include('config.php');
 
                             <div class="product-body">
                                 <p><?= $product['title']; ?></p>
-                                <a href="<?= $product['purchase_url']; ?>"
-                                   class="z mt-3 product-buy d-flex align-items-center justify-content-center gap-3 pointer"
-                                   data-sellix-product="<?= $product['uniqid'] ?>"><?= $product['purchase_description'] ?>
-                                    <div class="seperator"></div> <?= $currency . $product['price_display'] ?></a>
+
+                                <?php if (!empty($product['is_paddle'])): ?>
+                                    <button class="z mt-3 product-buy d-flex align-items-center justify-content-center gap-3 pointer paddle_button"
+                                            data-items='[{"priceId": "<?= $product['paddle_price_id'] ?>", "quantity": 1}]'>
+                                        <?= $product['purchase_description'] ?>
+                                        <div class="seperator"></div> <?= $currency . $product['price_display'] ?>
+                                    </button>
+                                <?php else: ?>
+                                    <a href="<?= $product['purchase_url']; ?>"
+                                       class="z mt-3 product-buy d-flex align-items-center justify-content-center gap-3 pointer"
+                                       data-sellix-product="<?= $product['uniqid'] ?>">
+                                        <?= $product['purchase_description'] ?>
+                                        <div class="seperator"></div> <?= $currency . $product['price_display'] ?>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -177,6 +188,15 @@ include('config.php');
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="./assets/js/bootstrap.min.js"></script>
 <script src="./assets/js/index.js"></script>
+
+<!-- Paddle.js Setup -->
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script type="text/javascript">
+    Paddle.Environment.set('production');
+    Paddle.Initialize({
+        token: 'live_70322f80b2ae7f8e648ea587754'
+    });
+</script>
 </body>
 
 </html>

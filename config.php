@@ -862,6 +862,23 @@ $products = [
                 ]
             ],
             [
+                'uniqid' => '12',
+                'title' => 'Paddle (Card / Apple Pay)',
+                'price_display' => '21.99 EUR/Year',
+                'purchase_url' => '#',
+                'purchase_description' => 'Subscribe',
+                'unlisted' => false,
+                'private' => false,
+                'image' => '',
+                'categories' => [
+                    [
+                        'title' => 'Full Edition (Java & Bedrock)'
+                    ]
+                ],
+                'is_paddle' => true,
+                'paddle_price_id' => 'pri_01m1c7mvy2gtxh9v2p2cqkytdt'
+            ],
+            [
                 'uniqid' => '11',
                 'title' => 'SpigotMC Buyers',
                 'price_display' => 'SpigotMC > BuiltByBit',
