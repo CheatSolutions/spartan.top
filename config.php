@@ -4,20 +4,20 @@
 $website_url = 'https://spartan.top/';
 $website_description = 'The longest living Minecraft paid anti cheat';
 $website_title = 'Spartan AntiCheat | ' . $website_description;
-$website_icon = '.././assets/img/logo.webp';
-$website_banner = '.././assets/img/logo.webp';
+$website_icon = 'https://raw.spartan.top/assets/img/logo.webp';
+$website_banner = 'https://raw.spartan.top/assets/img/logo.webp';
 $website_color = '#FFFFFF';
 
 
 // Navbar
-$logo = '.././assets/img/logo.png';
+$logo = 'https://raw.spartan.top/assets/img/logo.png';
 $navlinks = [
-    'Home' => '/',
-    'Reviews' => '/reviews',
-    'Contributors' => '/contributors',
-    'Discord' => '/discord',
-    'Documentation' => '/documentation',
-    'Videos' => '/videos'
+    'Home' => 'https://www.idealistic.ai/spartan',
+    'Reviews' => 'https://raw.spartan.top/reviews',
+    'Contributors' => 'https://raw.spartan.top/contributors',
+    'Discord' => 'https://raw.spartan.top/discord',
+    'Documentation' => 'https://raw.spartan.top/documentation',
+    'Videos' => 'https://raw.spartan.top/videos'
 ];
 
 // Header
@@ -77,7 +77,7 @@ $reviews = [
         'review' => "I've been using this plugin for a few years, and I've noticed a significant improvement in its quality over time. It's a great plugin and definitely worth having.",
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Smartiehga',
         'review' => "Its a good anti cheat that does what it supposed to obviously you have flase flags here and there but those are fixed pretty fast they work on the plugin activly and it does what its supposed to.",
     ],
@@ -102,7 +102,7 @@ $reviews = [
         'review' => 'Spartan is a very advanced AC that updates multiple times a week. There is no ac on the market with such quick and good support. Continue the good work!',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'ville222222',
         'review' => 'Very nice. good detections, good support. Theres no anticheat that updates this frequently. Very solid! few falses which will be fixed soon. still falses less frequently than any other anticheat that will detect something.',
     ],
@@ -132,7 +132,7 @@ $reviews = [
         'review' => 'Never took the time to write a review. Clearly the best anti-cheat on the market rn. Since 2016, well documented and maintained. As a developer I can only applaud',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Cyden',
         'review' => "Absolutely amazing Anti-Cheat that works fast, very reliable, and so easy to configure! This Developer also gives Amazing support. If not the best, it's one of the best Anti-cheats!!!",
     ],
@@ -152,7 +152,7 @@ $reviews = [
         'review' => 'Excellent support for the best Anticheat on the market. Blocks all Java and Bedrock threats. I totally recommend it.',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'doubiovo',
         'review' => 'This is the best version of anti-cheating I have ever used. Misjudgment almost never occurs. It takes up very little performance. This plug-in is worth buying',
     ],
@@ -162,7 +162,7 @@ $reviews = [
         'review' => 'Very good plugin I used this plugin before and and it is great also the support I reported a small issue and on the same/next day it was fixed im not sure.',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Radiant_Shiny',
         'review' => "The author is probably the most devoted person to his creation that I've ever seen. There is no other developer on this platform who would spend hours on developing a plugin and providing support for it.",
     ],
@@ -202,12 +202,12 @@ $reviews = [
         'review' => 'Reliable anti-cheat, regularly updated and enhanced, with an easy to use developer API. To top it all of is a very friendly developer who seems to really show a lot of care and passion for this project. Well worth the purchase!',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'HiuyuTing',
         'review' => 'Working very well on latest minecraft versions, good adaptability with other plugins. Staff is helpful, attitude is nice.Highly recommended.',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'UnleqitQ',
         'review' => 'Way best anticheat so far. Recognizes itself false positives! Easily my number one recommendation.',
     ],
@@ -227,12 +227,12 @@ $reviews = [
         'review' => "I've been using this plugin since this plugin was released, and this plugin completely prevents Hacker from using Cheats. I've never seen this plugin has been bypassed!!",
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'kiwimc',
         'review' => 'This guy has the best Anti Cheat on the market. His support is absolutely amazing and i recommend this to all users look for an Anti Cheat. The money I spent on it is well worth it!',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'wlm123',
         'review' => 'The developer is very positive. I like him very much. I recommend his anti cheating because the developer is very enthusiastic',
     ],
@@ -257,7 +257,7 @@ $reviews = [
         'review' => "Amazing anti-cheat. The default config is quite good, although it isn't perfect. Overall, works very well with my server.",
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'schnubbi2583',
         'review' => 'Very easy installation, usage and configutation. The developer is very kind and always reachable. I can recommend this plugin - it is a must have!',
     ],
@@ -277,7 +277,7 @@ $reviews = [
         'review' => "Literally the best anticheat I've ever bought. With me buying Verus, Alice, Matrix, etc.. none of them worked as well as this. It's definitely worth the money if you want a solid anticheat.",
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Jgibbz328',
         'review' => 'Amazing plugin! A must have for servers. Save yourself and your admins some time, and let Spartan do all the work of finding and punishing hackers.',
     ],
@@ -327,7 +327,7 @@ $reviews = [
         'review' => 'Consistent support & community support, nice community in the Discord server and the plugin works as intended.',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'XxXTrollMasterHD',
         'review' => 'Very good AntiCheat. The support of this plugin is epic. The dev is always friendly and answering questions within minutes. I really recommend this ressource to everyone.',
     ],
@@ -352,12 +352,12 @@ $reviews = [
         'review' => 'Very nice anticheat, detects very well the cheaters, i also had a problem using the ban command with bedrock players (non related with cheats) and the developer helped me very fast!',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'xemles',
         'review' => "Really responsive developer, got a few false positives, but if you report them to the dev, he'll do everything he can to make the plugin more compatible :)",
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'nikitushu ',
         'review' => 'Very determined author. Stable, regular updates. Nice support. Best anti-cheat on spigot so far!',
     ],
@@ -367,7 +367,7 @@ $reviews = [
         'review' => 'The dev really puts effort into this and it shows, frequent updates and always improving!',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'sbud',
         'review' => 'Very good customer support. Fixed my issues in seconds. Highly recommend. Thank you very much :)',
     ],
@@ -427,7 +427,7 @@ $reviews = [
         'review' => 'Very good anticheat!I suggesting it to everyone who wants one good anticheat to prevent hackers! Im using it also in my server! play.vaniland.xyz',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'SandoMCBrad',
         'review' => "One of the best AntiCheat plugin's there are out there. The Dev helps you with everything. (Setup, Support, etc)",
     ],
@@ -437,12 +437,12 @@ $reviews = [
         'review' => 'Works amazing, detects most hacked clients, owner is very helpful and will personally reach out to you to fix suitable problems! 10/10',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Joeywp',
         'review' => 'Got some incompatibilies on my themepark server I use this plugin at, but other than that it works fine most of the time, especially considering the very specific technical setup of my server. So far contacted support twice or thrice, and so far the response has been very quick.',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Xarius86',
         'review' => 'The developer is incredibly responsive to any and all concerns. Updates are released often and fixes are implemented incredibly quickly.',
     ],
@@ -452,7 +452,7 @@ $reviews = [
         'review' => 'Out of all paid plugins, they have the best discord response time, and they actually care about talking.. Even after getting so many Downloads, their support service is top notch. Fixes or bugs are repaired live. just awesome.',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'WeasalCrafter',
         'review' => 'I messaged the guy for some help, and almost immediately got results from them. Great plugin and easy to read configs. Definitely suggest to anyone looking to block hacking.',
     ],
@@ -462,7 +462,7 @@ $reviews = [
         'review' => 'Amazing anticheat. The developer gives quick support and helps fixes issues within minutes. I recommend this anticheat over any others.',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Loyisa',
         'review' => 'Maybe Spartan is not the best anticheat, but this anticheat has the best support',
     ],
@@ -512,7 +512,7 @@ $reviews = [
         'review' => '5 Star Plugin - Excellent AntiCheat - Developer addresses and fixes problems very quickly. Handled every hack thrown at it gracefully, and much improved false positive detection. Only getting better and better!',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'TheNoNinja',
         'review' => 'I have the plugin for some time now and had some questions. I asked the developer on discord and had an answer in mere minutes. Great support, awesome detection, and a great plugin overall. Defiantly a must have!',
     ],
@@ -557,177 +557,177 @@ $reviews = [
 $discord_link = 'https://spartan.top/discord';
 $contributors = [
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Notaviable',
         'role' => 'Client Developer',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'SaubereSacheLP',
         'role' => 'Client Developer',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Rhys',
         'role' => 'Reverse Engineer',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Pawsashatoy',
         'role' => 'Java Senior Developer',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'GRArthas',
         'role' => 'Resigned Owner',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Johand',
         'role' => 'Community Admin',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Guerryer',
         'role' => 'Community Admin',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Alexcrafter',
         'role' => 'Community Admin',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'hoi66',
         'role' => 'Community Admin',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Barpad',
         'role' => 'Community Moderator',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Luis',
         'role' => 'Community Moderator',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'MinecraftSGP',
         'role' => 'Community Moderator',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'SuchBlue',
         'role' => 'Community Moderator',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Aqua',
         'role' => 'Community Moderator',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Kaspian',
         'role' => 'Community Moderator',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Roadhog360',
         'role' => 'Community Moderator',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Zelo',
         'role' => 'Community Moderator',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Zelo',
         'role' => 'Community Moderator',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'DasCanard',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'nur1popcorn',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Nyrox',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'DieselJS',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'TheRobLP',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Tjuli',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Toshka',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Yenil',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Norhu1130',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'TheTigerPython',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'DukeinPro',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Henrinks9',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'Electrum',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'CatGPT',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'loving11ish',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'train21',
         'role' => 'General Help',
     ],
     [
-        'picture' => '.././assets/img/picture.png',
+        'picture' => 'https://raw.spartan.top/assets/img/picture.png',
         'name' => 'DarksideCode',
         'role' => 'General Help',
     ]

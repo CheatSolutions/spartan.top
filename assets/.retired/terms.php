@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+include('/var/www/spartan/config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
