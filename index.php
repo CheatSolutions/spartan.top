@@ -38,9 +38,9 @@ include('/var/www/spartan/config.php');
     <meta property="twitter:description" content="<?= $website_description ?>">
     <meta property="twitter:image" content="<?= $website_banner ?>">
 
-    <link rel="stylesheet" href="https://raw.spartan.top/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://raw.spartan.top/assets/css/styles.css">
-    <script src="https://raw.spartan.top/assets/js/particles.min.js"></script>
+    <link rel="stylesheet" href="https://spartan.top/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://spartan.top/assets/css/styles.css">
+    <script src="https://spartan.top/assets/js/particles.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
@@ -83,7 +83,7 @@ include('/var/www/spartan/config.php');
         <div class="row header-content" data-aos="fade-up">
             <div class="col-lg-6">
                 <div class="header-alert d-flex align-items-center gap-2 m-auto m-lg-0">
-                    <img alt="Small lightning icon" src="https://raw.spartan.top/assets/img/icons/lightning.png">
+                    <img alt="Small lightning icon" src="https://spartan.top/assets/img/icons/lightning.png">
                     <p><?= $alert ?></p>
                 </div>
                 <h1><?= $h1 ?></h1>
@@ -96,7 +96,7 @@ include('/var/www/spartan/config.php');
             </div>
 
             <div class="col-lg-6 mt-5 mt-lg-0">
-                <img alt="Company logo 2" class="w-100 h-100 header-img" src="https://raw.spartan.top/assets/img/mtfuji.png">
+                <img alt="Company logo 2" class="w-100 h-100 header-img" src="https://spartan.top/assets/img/mtfuji.png">
             </div>
         </div>
     </div>
@@ -186,8 +186,8 @@ include('/var/www/spartan/config.php');
 </main>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://raw.spartan.top/assets/js/bootstrap.min.js"></script>
-<script src="https://raw.spartan.top/assets/js/index.js"></script>
+<script src="https://spartan.top/assets/js/bootstrap.min.js"></script>
+<script src="https://spartan.top/assets/js/index.js"></script>
 
 <!-- Paddle.js Setup -->
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
