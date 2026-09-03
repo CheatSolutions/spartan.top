@@ -863,10 +863,10 @@ $products = [
             ],
             [
                 'uniqid' => '12',
-                'title' => 'Paddle (Card / Apple Pay)',
-                'price_display' => '21.99 EUR/Year',
+                'title' => 'Paddle',
+                'price_display' => '21.99 EUR (Approx. 25 USD)',
                 'purchase_url' => '#',
-                'purchase_description' => 'Subscribe',
+                'purchase_description' => 'Purchase',
                 'unlisted' => false,
                 'private' => false,
                 'image' => '',
