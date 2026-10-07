@@ -1,33 +1,66 @@
 <?php
 
+// Pricing (single source of truth: every price on the website is derived from these)
+$price_eur = 21.99;
+$price_usd = 25; // Approximate
+$price_per_month_eur = round($price_eur / 12, 2);
+
 // Meta Information
 $website_url = 'https://spartan.top/';
-$website_description = 'The longest living Minecraft paid anti cheat';
-$website_title = 'Spartan AntiCheat | ' . $website_description;
+$website_description = 'Stop hackers on your Minecraft server. Java & Bedrock anti-cheat for 1.7 to the latest version, trusted since 2016. Free up to 5 players, then just ' . number_format($price_eur, 2) . ' EUR a year.';
+$website_title = 'Spartan AntiCheat | Minecraft Anti-Cheat for Java & Bedrock';
 $website_icon = 'https://spartan.top/assets/img/logo.webp';
-$website_banner = 'https://spartan.top/assets/img/logo.webp';
-$website_color = '#FFFFFF';
+$website_banner = 'https://spartan.top/assets/img/mtfuji.jpg';
+$website_color = '#0d0b0f';
 
 
 // Navbar
 $logo = 'https://spartan.top/assets/img/logo.png';
 $navlinks = [
     'Home' => 'https://www.idealistic.ai/spartan',
+    'Pricing' => 'https://spartan.top/#pricing',
     'Reviews' => 'https://spartan.top/reviews',
-    'Contributors' => 'https://spartan.top/contributors',
-    'Discord' => 'https://spartan.top/discord',
     'Documentation' => 'https://spartan.top/documentation',
+    'Discord' => 'https://spartan.top/discord',
     'Videos' => 'https://spartan.top/videos'
+];
+$nav_cta = [
+    'label' => 'Get Spartan',
+    'url' => 'https://spartan.top/#pricing'
 ];
 
 // Header
-$alert = 'A buyer\'s favorite since year 2016';
-$h1 = 'Spartan AntiCheat - <span>For Java & Bedrock servers</span>';
-$description = 'The longest living Minecraft paid anti cheat! <a href="https://modrinth.com/plugin/spartan-anticheat">(Free with 5 or less players)</a>';
+$alert = 'Trusted by server owners since 2016';
+$h1 = 'Stop cheaters. <span>Keep your players.</span>';
+$description = 'Spartan AntiCheat is the longest living paid Minecraft anti-cheat: one plugin that protects your <strong>Java & Bedrock</strong> server on every version from 1.7 to the latest.';
+$hero_cta = 'Get Spartan';
+$hero_secondary_cta = 'Try it free';
+$free_link = 'https://modrinth.com/plugin/spartan-anticheat';
+$free_note = 'Free for servers with 5 players or less';
+
+// Trust bar (the review count is calculated automatically from the reviews below)
+$stats = [
+    [
+        'value' => '2016',
+        'label' => 'Protecting servers since'
+    ],
+    [
+        'value' => '1.7 → Latest',
+        'label' => 'Minecraft versions supported'
+    ],
+    [
+        'value' => 'Java + Bedrock',
+        'label' => 'One plugin, both editions'
+    ],
+    [
+        'value' => '{reviews}+',
+        'label' => 'Real buyer reviews'
+    ]
+];
 
 // Features
 $enable_features = true;
-$features_title = 'What we bring to the table';
+$features_title = 'Everything you need to keep cheaters out';
 $features_description = 'At least part of it, we bring a lot more!';
 
 $features = [
@@ -54,7 +87,7 @@ $features = [
     [
         'icon' => '🛠',
         'title' => 'Effortless Setup',
-        'description' => 'Deploy instantly using our intuitive in-game GUI and simple configs, while retaining deep customization options for advanced users.'
+        'description' => 'Deploy instantly using our intuitive in-game GUI and simple configs, while retaining deep customization and a developer API for advanced users.'
     ],
     [
         'icon' => '🤝',
@@ -63,6 +96,113 @@ $features = [
     ]
 ];
 
+// Pricing plans (both plans cost the same; they only differ in how you pay)
+$pricing_title = 'Pick how you want to pay';
+$pricing_description = 'Same full Spartan. Same price. Choose the billing style that suits you best.';
+$plans = [
+    [
+        'id' => 'subscription',
+        'provider' => 'stripe',
+        'name' => 'Annual Subscription',
+        'badge' => 'Set & forget',
+        'tagline' => 'Renews every year, so your protection never lapses.',
+        'cta' => 'Subscribe with Stripe',
+        'url' => 'https://spartan.top/stripe',
+        'highlight' => true,
+        'perks' => [
+            'Renews automatically every year',
+            'Never worry about expiry or forgetting to renew',
+            'Cancel anytime'
+        ],
+        'fine_print' => 'Secure checkout by Stripe'
+    ],
+    [
+        'id' => 'purchase',
+        'provider' => 'paypal',
+        'name' => 'Annual Purchase',
+        'badge' => 'No recurring charges',
+        'tagline' => 'One payment. One year. Nothing is ever charged automatically.',
+        'cta' => 'Pay once with PayPal',
+        'url' => 'https://spartan.top/paypal',
+        'highlight' => false,
+        'perks' => [
+            'A single payment covers a full year',
+            'No auto-renewal, so no surprise charges',
+            'You decide if and when to renew'
+        ],
+        'fine_print' => 'Secure checkout by PayPal'
+    ]
+];
+
+// Everything both plans include
+$plan_includes = [
+    'Full Edition for Java & Bedrock',
+    'Every Minecraft version from 1.7 to the latest',
+    'All updates, new detections and fixes',
+    'Documentation, Discord, Email & AI support',
+    'In-game GUI, deep configs & developer API'
+];
+
+// Optional promise shown under the plans. Leave empty unless you officially offer it (e.g. a refund policy).
+$guarantee = '';
+
+// How it works
+$steps_title = 'Protected in three simple steps';
+$steps = [
+    [
+        'title' => 'Pick your plan',
+        'description' => 'Choose the annual subscription or the one-off annual purchase. Same Spartan, same price.'
+    ],
+    [
+        'title' => 'Install in minutes',
+        'description' => 'Drop Spartan on your server and fine-tune it from the in-game GUI. It works right out of the box.'
+    ],
+    [
+        'title' => 'Get help anytime',
+        'description' => 'Documentation, Discord, Email and AI support are always one message away.'
+    ]
+];
+
+// Frequently asked questions (answers may contain HTML)
+$faq_title = 'Questions? Answered.';
+$faq = [
+    [
+        'q' => 'What is the difference between the Annual Subscription and the Annual Purchase?',
+        'a' => 'Both give you the exact same Spartan for the same price. The <strong>Annual Subscription</strong> (Stripe) renews automatically every year so your protection never lapses, and you can cancel anytime. The <strong>Annual Purchase</strong> (PayPal) is a single payment that covers one year: we never charge you again automatically, you simply choose whether to renew when the year is up.'
+    ],
+    [
+        'q' => 'Can I try Spartan before buying it?',
+        'a' => 'Yes! Spartan is free for servers with 5 players or less. <a href="https://modrinth.com/plugin/spartan-anticheat">Download it from Modrinth</a>, test it on your server and upgrade whenever you are ready.'
+    ],
+    [
+        'q' => 'Does Spartan protect Bedrock players too?',
+        'a' => 'Yes. Spartan natively detects cheats from both Java and Bedrock (via Geyser) players at the same time, so a single plugin covers your whole community.'
+    ],
+    [
+        'q' => 'Which Minecraft versions are supported?',
+        'a' => 'Every version from 1.7 up to the latest release, with updates guaranteed for new Minecraft versions.'
+    ],
+    [
+        'q' => 'Will it flag my legitimate players?',
+        'a' => 'No anti-cheat is perfect, which is why Spartan is highly configurable so you can tune it to your server\'s gameplay. If a false positive ever slips through, report it on <a href="https://spartan.top/discord">Discord</a>. Reviewers regularly mention fixes arriving within hours.'
+    ],
+    [
+        'q' => 'How do I get help?',
+        'a' => 'Through the <a href="https://spartan.top/documentation">documentation</a>, our <a href="https://spartan.top/discord">Discord</a> community, Email and AI-assisted support.'
+    ],
+    [
+        'q' => 'Which payment methods can I use?',
+        'a' => 'Stripe (cards and supported wallets) for the annual subscription, PayPal for the annual purchase, and Tebex or Paddle if you prefer them.'
+    ],
+    [
+        'q' => 'I bought Spartan on SpigotMC. Do I need to buy it again?',
+        'a' => 'No. SpigotMC buyers can be transferred to BuiltByBit, just open a ticket on <a href="https://spartan.top/discord">Discord</a> and we will sort it out.'
+    ]
+];
+
+// Final call to action
+$final_title = 'Give your players the fair game they deserve.';
+$final_description = 'Join the server owners who stopped worrying about cheaters.';
 
 // Products
 $displayUnlisted = false;
@@ -70,6 +210,30 @@ $currency = '';
 
 // Reviews
 $store_link = 'https://builtbybit.com/resources/11196/reviews';
+$reviews_title = 'Server owners love Spartan';
+$reviews_description = 'Real reviews from SpigotMC & BuiltByBit buyers.';
+// Reviews highlighted in the homepage carousel (matched by name, shown in this order). Leave empty to use the first reviews.
+$featured_reviews = [
+    'BloodyBelgian',
+    'jcardonne',
+    'quack988',
+    'HiveramXII',
+    'MClaus',
+    'mfnalex',
+    'xwolfyxNL',
+    'Potato_IQ',
+    'louanbastos',
+    'ImIllusion',
+    'Noobcrafteryt',
+    'Jameswong',
+    'PrestigeElmo',
+    'Spaex',
+    'adrianlugo',
+    'Galexrt',
+    'DaringDoughnut',
+    'doubiovo'
+];
+
 $reviews = [
     [
         'picture' => 'https://www.spigotmc.org/data/avatars/s/281/281154.jpg',
@@ -553,191 +717,11 @@ $reviews = [
     ]
 ];
 
-// Contributors
-$discord_link = 'https://spartan.top/discord';
-$contributors = [
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Notaviable',
-        'role' => 'Client Developer',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'SaubereSacheLP',
-        'role' => 'Client Developer',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Rhys',
-        'role' => 'Reverse Engineer',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Pawsashatoy',
-        'role' => 'Java Senior Developer',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'GRArthas',
-        'role' => 'Resigned Owner',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Johand',
-        'role' => 'Community Admin',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Guerryer',
-        'role' => 'Community Admin',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Alexcrafter',
-        'role' => 'Community Admin',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'hoi66',
-        'role' => 'Community Admin',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Barpad',
-        'role' => 'Community Moderator',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Luis',
-        'role' => 'Community Moderator',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'MinecraftSGP',
-        'role' => 'Community Moderator',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'SuchBlue',
-        'role' => 'Community Moderator',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Aqua',
-        'role' => 'Community Moderator',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Kaspian',
-        'role' => 'Community Moderator',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Roadhog360',
-        'role' => 'Community Moderator',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Zelo',
-        'role' => 'Community Moderator',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Zelo',
-        'role' => 'Community Moderator',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'DasCanard',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'nur1popcorn',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Nyrox',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'DieselJS',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'TheRobLP',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Tjuli',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Toshka',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Yenil',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Norhu1130',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'TheTigerPython',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'DukeinPro',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Henrinks9',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'Electrum',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'CatGPT',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'loving11ish',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'train21',
-        'role' => 'General Help',
-    ],
-    [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
-        'name' => 'DarksideCode',
-        'role' => 'General Help',
-    ]
-];
-
 
 // Terms 
 $terms = [];
 
-// Products
+// Products (PayPal and Stripe are unlisted here because they are shown as the main plans above)
 $products = [
     'data' => [
         'products' => [
@@ -822,7 +806,7 @@ $products = [
                 'price_display' => '21.99 EUR (Approx. 25 USD)',
                 'purchase_url' => 'https://spartan.top/paypal',
                 'purchase_description' => 'Purchase',
-                'unlisted' => false,
+                'unlisted' => true,
                 'private' => false,
                 'image' => '',
                 'categories' => [
@@ -837,7 +821,7 @@ $products = [
                 'price_display' => '21.99 EUR (Approx. 25 USD)',
                 'purchase_url' => 'https://spartan.top/stripe',
                 'purchase_description' => 'Purchase',
-                'unlisted' => false,
+                'unlisted' => true,
                 'private' => false,
                 'image' => '',
                 'categories' => [
@@ -895,4 +879,4 @@ $products = [
             ]
         ]
     ],
-];
+];
