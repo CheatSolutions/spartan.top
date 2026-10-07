@@ -294,7 +294,8 @@ sp_head(['home' => true, 'paddle' => true, 'schemas' => $schemas]);
                            data-plan="<?= sp_e($plan['name']) ?>"><?= sp_e($plan['cta']) ?></a>
                     <?php endforeach; ?>
                 </div>
-                <p class="final-note">Questions first? <a href="https://spartan.top/discord">Talk to us on Discord</a>.</p>
+                <p class="final-note">Questions first? Ask our AI support on <a href="https://spartan.top/discord">Discord</a>
+                    or reach our human support on <a href="<?= sp_e($human_support_link) ?>">BuiltByBit</a>.</p>
             </div>
         </div>
     </section>

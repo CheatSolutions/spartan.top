@@ -37,6 +37,7 @@ $hero_cta = 'Get Spartan';
 $hero_secondary_cta = 'Try it free';
 $free_link = 'https://modrinth.com/plugin/spartan-anticheat';
 $free_note = 'Free for servers with 5 players or less';
+$human_support_link = 'https://builtbybit.com/members/cheatsolutions.63108/';
 
 // Trust bar (the review count is calculated automatically from the reviews below)
 $stats = [
@@ -92,7 +93,7 @@ $features = [
     [
         'icon' => '🤝',
         'title' => 'Comprehensive Support',
-        'description' => 'Backed by a massive, active community and multi-channel assistance including thorough documentation, Discord, Email, and AI support.'
+        'description' => 'Backed by a massive, active community, thorough documentation, AI support on Discord and human support on BuiltByBit.'
     ]
 ];
 
@@ -139,7 +140,7 @@ $plan_includes = [
     'Full Edition for Java & Bedrock',
     'Every Minecraft version from 1.7 to the latest',
     'All updates, new detections and fixes',
-    'Documentation, Discord, Email & AI support',
+    'Documentation, AI support on Discord & human support on BuiltByBit',
     'In-game GUI, deep configs & developer API'
 ];
 
@@ -159,7 +160,7 @@ $steps = [
     ],
     [
         'title' => 'Get help anytime',
-        'description' => 'Documentation, Discord, Email and AI support are always one message away.'
+        'description' => 'Documentation and AI support on Discord are always one message away, with human support on BuiltByBit when you want a real person.'
     ]
 ];
 
@@ -184,19 +185,19 @@ $faq = [
     ],
     [
         'q' => 'Will it flag my legitimate players?',
-        'a' => 'No anti-cheat is perfect, which is why Spartan is highly configurable so you can tune it to your server\'s gameplay. If a false positive ever slips through, report it on <a href="https://spartan.top/discord">Discord</a>. Reviewers regularly mention fixes arriving within hours.'
+        'a' => 'No anti-cheat is perfect, which is why Spartan is highly configurable so you can tune it to your server\'s gameplay. If a false positive ever slips through, report it to our human support team on <a href="https://builtbybit.com/members/cheatsolutions.63108/">BuiltByBit</a>. Reviewers regularly mention fixes arriving within hours.'
     ],
     [
         'q' => 'How do I get help?',
-        'a' => 'Through the <a href="https://spartan.top/documentation">documentation</a>, our <a href="https://spartan.top/discord">Discord</a> community, Email and AI-assisted support.'
+        'a' => 'Start with the <a href="https://spartan.top/documentation">documentation</a>, then ask our AI support on <a href="https://spartan.top/discord">Discord</a> any time. If you want a real person, our human support team is available on <a href="https://builtbybit.com/members/cheatsolutions.63108/">BuiltByBit</a>.'
     ],
     [
         'q' => 'Which payment methods can I use?',
         'a' => 'Stripe (cards and supported wallets) for the annual subscription, PayPal for the annual purchase, and Tebex or Paddle if you prefer them.'
     ],
     [
-        'q' => 'I bought Spartan on SpigotMC. Do I need to buy it again?',
-        'a' => 'No. SpigotMC buyers can be transferred to BuiltByBit, just open a ticket on <a href="https://spartan.top/discord">Discord</a> and we will sort it out.'
+        'q' => 'I bought Spartan on SpigotMC. Can I transfer for free?',
+        'a' => 'Yes. If you purchased on SpigotMC less than a year ago, your transfer to BuiltByBit is free. <a href="https://spartan.top/discord">Request it on Discord</a> and you will not need to buy again.'
     ]
 ];
 

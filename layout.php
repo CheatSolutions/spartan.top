@@ -163,7 +163,7 @@ function sp_navbar(): void
 
 function sp_footer(): void
 {
-    global $logo, $website_url, $free_link;
+    global $logo, $website_url, $free_link, $human_support_link;
     $base = rtrim($website_url, '/');
     ?>
 <footer class="site-footer">
@@ -188,9 +188,9 @@ function sp_footer(): void
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="<?= sp_e($base) ?>/documentation">Documentation</a></li>
-                    <li><a href="<?= sp_e($base) ?>/discord">Discord</a></li>
+                    <li><a href="<?= sp_e($base) ?>/discord">Discord (AI support)</a></li>
+                    <li><a href="<?= sp_e($human_support_link) ?>">Human support (BuiltByBit)</a></li>
                     <li><a href="<?= sp_e($base) ?>/videos">Videos</a></li>
-                    <li><a href="<?= sp_e($base) ?>/stats">Live statistics</a></li>
                 </ul>
             </div>
         </div>
