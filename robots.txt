@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-# Short links that only redirect to checkouts, downloads or other websites
 Disallow: /paypal/
 Disallow: /stripe/
 Disallow: /tebex/

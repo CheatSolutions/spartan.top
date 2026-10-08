@@ -1,4 +1,3 @@
-// Spartan website behaviour: loading transition, smooth scrolling, accordions, plan picker, review carousel, buy bar and click tracking.
 
 const snowflakes = {
   "particles": {
@@ -116,12 +115,10 @@ const snowflakes = {
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---------- Background particles ----------
   if (!reduceMotion && typeof particlesJS === 'function' && document.getElementById('dots')) {
     particlesJS('dots', snowflakes);
   }
 
-  // ---------- Loading transition (first visit of a session, never rendered for crawlers) ----------
   const splash = document.getElementById('splash');
 
   if (splash && document.documentElement.classList.contains('splash-on')) {
@@ -140,7 +137,6 @@ const snowflakes = {
         try {
           sessionStorage.setItem('spartanSplash', '1');
         } catch (e) {
-          // Nothing to remember without storage
         }
         setTimeout(function () {
           splash.remove();
@@ -157,7 +153,6 @@ const snowflakes = {
     setTimeout(hideSplash, 3500);
   }
 
-  // ---------- Eased scrolling for in-page links ----------
   let scrollFrame = null;
 
   function stopScroll() {
@@ -192,7 +187,6 @@ const snowflakes = {
     scrollFrame = requestAnimationFrame(frame);
   }
 
-  // The visitor always wins: any manual scrolling cancels the animation
   ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (name) {
     window.addEventListener(name, stopScroll, {passive: true});
   });
@@ -218,7 +212,6 @@ const snowflakes = {
     history.pushState(null, '', url.hash);
   });
 
-  // ---------- Animated accordions (FAQ answers close each other, documentation blocks are independent) ----------
   function animateDetails(details, opening) {
     const summary = details.querySelector(':scope > summary');
     const startHeight = details.offsetHeight;
@@ -275,14 +268,12 @@ const snowflakes = {
     });
   });
 
-  // The documentation sidebar starts collapsed on small screens
   document.querySelectorAll('.doc-sidebar').forEach(function (sidebar) {
     if (window.innerWidth < 992) {
       sidebar.open = false;
     }
   });
 
-  // ---------- Plan picker (choose a billing style, then the matching checkout appears) ----------
   document.querySelectorAll('[data-plan-picker]').forEach(function (picker) {
     const choices = picker.querySelectorAll('[data-plan-choice]');
     const panels = picker.querySelectorAll('[data-plan-panel]');
@@ -304,7 +295,6 @@ const snowflakes = {
           }
         });
 
-        // Make sure the checkout is fully visible, especially on phones
         requestAnimationFrame(function () {
           const rect = active.getBoundingClientRect();
 
@@ -316,7 +306,6 @@ const snowflakes = {
     });
   });
 
-  // ---------- Documentation search ----------
   document.querySelectorAll('[data-doc-filter]').forEach(function (input) {
     const cards = document.querySelectorAll('[data-doc-card]');
     const groups = document.querySelectorAll('[data-doc-group]');
@@ -344,7 +333,6 @@ const snowflakes = {
     });
   });
 
-  // ---------- Scroll reveal ----------
   const revealItems = document.querySelectorAll('.reveal');
 
   if ('IntersectionObserver' in window) {
@@ -365,7 +353,6 @@ const snowflakes = {
     });
   }
 
-  // ---------- Review carousel ----------
   document.querySelectorAll('[data-carousel]').forEach(function (root) {
     const track = root.querySelector('.carousel-track');
     const prev = root.querySelector('.prev');
@@ -383,7 +370,6 @@ const snowflakes = {
       return;
     }
 
-    // Distance between the start of two neighbouring slides
     function step() {
       return slides[1].offsetLeft - slides[0].offsetLeft;
     }
@@ -414,7 +400,6 @@ const snowflakes = {
       }
     }
 
-    // Every page is as tall as its own tallest card (not the tallest card of the whole carousel), so no card has dead space
     function measurePages() {
       const perPage = perView();
       pageHeights = [];
@@ -475,7 +460,6 @@ const snowflakes = {
       updateDots();
     }
 
-    // Autoplay stops for good as soon as the visitor takes control
     function stopAutoplay() {
       clearInterval(timer);
       timer = null;
@@ -539,7 +523,6 @@ const snowflakes = {
       resizeTimer = setTimeout(layout, 150);
     });
 
-    // Text height changes once the web font and the images are ready
     window.addEventListener('load', layout);
 
     if (document.fonts && document.fonts.ready) {
@@ -558,7 +541,6 @@ const snowflakes = {
     startAutoplay();
   });
 
-  // ---------- Floating buy bar ----------
   const buyBar = document.getElementById('buyBar');
 
   if (buyBar) {
@@ -579,7 +561,6 @@ const snowflakes = {
       }
     }
 
-    // Hide the bar while the plans (or the final call to action) are already on screen
     if ('IntersectionObserver' in window) {
       const watcher = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -605,7 +586,6 @@ const snowflakes = {
     scheduleRender();
   }
 
-  // ---------- Click tracking (sent to Google Ads / Analytics when available) ----------
   document.addEventListener('click', function (event) {
     const el = event.target.closest('[data-track]');
 

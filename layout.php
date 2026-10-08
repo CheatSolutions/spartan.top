@@ -1,13 +1,10 @@
 <?php
-// Shared layout and helpers used by every page of the website.
-// This file only defines functions, so it prints nothing if it is opened directly.
 
 function sp_e($value): string
 {
     return htmlspecialchars((string)$value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-// Asset URL with a version suffix so visitors always get the latest CSS/JS after a deployment
 function sp_asset(string $path): string
 {
     global $website_url;
@@ -16,7 +13,6 @@ function sp_asset(string $path): string
     return rtrim($website_url, '/') . '/' . $path . ($version ? '?v=' . $version : '');
 }
 
-// Text helpers that keep working on servers without the mbstring extension
 function sp_len(string $text): int
 {
     if (function_exists('mb_strlen')) {
@@ -44,13 +40,11 @@ function sp_money(float $amount): string
     return number_format($amount, 2, '.', '');
 }
 
-// Rounded down to the nearest ten, e.g. 96 reviews are shown as "90+"
 function sp_review_milestone(array $reviews): int
 {
     return (int)(floor(count($reviews) / 10) * 10);
 }
 
-// Picks the highlighted reviews (by name, in the configured order) for the homepage carousel
 function sp_pick_reviews(array $reviews, array $featured, int $limit = 18): array
 {
     $picked = [];
@@ -71,7 +65,6 @@ function sp_pick_reviews(array $reviews, array $featured, int $limit = 18): arra
     return array_slice(empty($picked) ? $reviews : $picked, 0, $limit);
 }
 
-// Profile picture with the first letter of the name as a fallback for missing or broken images
 function sp_avatar(array $review): string
 {
     $name = trim((string)($review['name'] ?? ''));
@@ -86,7 +79,6 @@ function sp_avatar(array $review): string
     return $html . '</span>';
 }
 
-// Estimates how well a review is written (0-100): capitalisation, punctuation, typos, substance and a sensible length
 function sp_review_score(array $review): float
 {
     $text = trim((string)($review['review'] ?? ''));
@@ -144,7 +136,6 @@ function sp_review_score(array $review): float
     return max(0.0, min(100.0, $score));
 }
 
-// Best written reviews first, while every row of cards gets reviews of a similar length so they sit well next to each other
 function sp_arrange_reviews(array $reviews, int $columns = 3): array
 {
     try {
@@ -179,7 +170,6 @@ function sp_arrange_reviews_unsafe(array $reviews, int $columns): array
             $best = 0;
             $bestCost = INF;
 
-            // Only the next few best reviews are considered, so quality drifts down slowly instead of jumping around
             foreach (array_slice($items, 0, 14, true) as $position => $candidate) {
                 $cost = abs($candidate['length'] - $target) / max(60, $target) + 0.06 * $position;
 
@@ -192,7 +182,6 @@ function sp_arrange_reviews_unsafe(array $reviews, int $columns): array
             array_splice($items, $best, 1);
         }
 
-        // Cards in the same row share one type size, so neighbours never look mismatched
         $average = array_sum(array_column($row, 'length')) / count($row);
         $size = $average <= 125 ? 'is-short' : ($average <= 195 ? 'is-medium' : 'is-long');
 
@@ -204,7 +193,6 @@ function sp_arrange_reviews_unsafe(array $reviews, int $columns): array
     return $arranged;
 }
 
-// One review card, used by the homepage carousel and the reviews page. Short quotes get larger type so cards feel full.
 function sp_review_card(array $review, string $class = ''): string
 {
     $text = trim((string)($review['review'] ?? ''));
@@ -218,7 +206,6 @@ function sp_review_card(array $review, string $class = ''): string
         . '</figcaption></figure>';
 }
 
-// Search engines, social previews, uptime monitors and scripts must never see the loading transition
 function sp_is_crawler(): bool
 {
     $agent = strtolower((string)($_SERVER['HTTP_USER_AGENT'] ?? ''));
@@ -235,7 +222,6 @@ function sp_is_crawler(): bool
     );
 }
 
-// Printed right after <body>: the skip link and, for the first visit of a session, the big logo transition
 function sp_body_start(): void
 {
     global $website_icon, $powered_by;
@@ -283,7 +269,6 @@ function sp_head(array $page = []): void
     $description = $page['description'] ?? $website_description;
     $canonical = rtrim($website_url, '/') . '/' . ltrim($page['path'] ?? '', '/');
     $baseUrl = rtrim($website_url, '/') . '/';
-    // Site-wide structured data: who the website belongs to, and that it is a website
     $schemas = array_merge([[
         '@context' => 'https://schema.org',
         '@graph' => [
@@ -427,7 +412,7 @@ function sp_navbar(string $active = ''): void
 
 function sp_footer(): void
 {
-    global $logo, $website_url, $free_link, $human_support_link, $powered_by;
+    global $logo, $website_url, $free_link, $human_support_link, $powered_by, $ai_disclosure;
     $base = rtrim($website_url, '/');
     ?>
 <footer class="site-footer">
@@ -470,13 +455,13 @@ function sp_footer(): void
         <div class="footer-bottom">
             <p>&copy; 2016-<?= date('Y') ?> Spartan AntiCheat. Not affiliated with Mojang Studios or Microsoft.
                 Minecraft is a trademark of Mojang Synergies AB.</p>
+            <p><?= sp_e($ai_disclosure) ?></p>
         </div>
     </div>
 </footer>
     <?php
 }
 
-// Floating "buy" reminder, shown once the visitor scrolls past the top of the page
 function sp_buy_bar(): void
 {
     global $website_url, $price_eur, $price_per_month_eur;

@@ -1,6 +1,4 @@
 <?php
-// Documentation pages: Markdown files are pulled from the public GitHub repository, cached and rendered here.
-// This file only defines functions, so it prints nothing if it is opened directly.
 
 function sp_docs_slug(string $file): string
 {
@@ -48,7 +46,6 @@ function sp_docs_http(string $url): ?string
     return $body === false ? null : $body;
 }
 
-// Returns the cached copy while it is fresh, refreshes it when it is not, and falls back to the stale copy if GitHub fails
 function sp_docs_cached(string $key, string $url, int $ttl): ?string
 {
     $file = sp_docs_cache_dir() . '/' . preg_replace('/[^a-z0-9._-]/i', '_', $key);
@@ -73,14 +70,13 @@ function sp_docs_cached(string $key, string $url, int $ttl): ?string
     }
 
     if ($exists) {
-        @touch($file); // Do not hammer GitHub while it is unreachable
+        @touch($file);
         $content = @file_get_contents($file);
         return $content === false ? null : $content;
     }
     return null;
 }
 
-// Every documentation page, discovered from the repository (cached) and enriched with the details in config.php
 function sp_docs_list(): array
 {
     global $docs_api_url, $docs_meta, $docs_groups, $docs_fallback_files;
@@ -131,7 +127,6 @@ function sp_docs_content(array $doc): ?string
     return sp_docs_cached('md-' . $doc['slug'] . '.md', $docs_raw_base . rawurlencode($doc['file']), 3600);
 }
 
-// Links that point to the documentation on GitHub are rewritten to the equivalent page of this website
 function sp_docs_rewrite_url(string $url, array $docs): string
 {
     $pattern = '~^https://github\.com/CheatSolutions/Important-Information/(?:blob|tree)/main/documentation(?:/([^?#]*))?~i';
@@ -162,12 +157,10 @@ function sp_md_inline(string $text, array $docs): string
         return "\u{E000}" . (count($tokens) - 1) . "\u{E001}";
     };
 
-    // Code spans first, so nothing inside them is interpreted
     $text = preg_replace_callback('/(`{1,2})(.+?)\1/u', function ($match) use ($stash) {
         return $stash('<code>' . sp_md_escape($match[2]) . '</code>');
     }, $text);
 
-    // The only raw HTML tags the documentation is allowed to use
     $text = preg_replace_callback('/<br\s*\/?>/i', function () use ($stash) {
         return $stash('<br>');
     }, $text);
@@ -180,12 +173,10 @@ function sp_md_inline(string $text, array $docs): string
 
     $text = sp_md_escape($text);
 
-    // Images (HTTPS only)
     $text = preg_replace_callback('/!\[([^\]]*)\]\((https:\/\/[^)\s]+)\)/u', function ($match) use ($stash) {
         return $stash('<img src="' . $match[2] . '" alt="' . $match[1] . '" loading="lazy">');
     }, $text);
 
-    // Markdown links
     $text = preg_replace_callback('/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/u', function ($match) use ($stash, $docs) {
         $url = sp_docs_rewrite_url(html_entity_decode($match[2], ENT_QUOTES, 'UTF-8'), $docs);
         return $stash('<a href="' . sp_md_escape($url) . '" rel="noopener">' . $match[1] . '</a>');
@@ -193,7 +184,6 @@ function sp_md_inline(string $text, array $docs): string
 
     $text = preg_replace('/\*\*(.+?)\*\*/u', '<strong>$1</strong>', $text);
 
-    // Bare URLs
     $text = preg_replace_callback('~(?<![\w/"=])https?://[^\s<\x{E000}]+~u', function ($match) use ($stash, $docs) {
         $url = $match[0];
         $trailing = '';
@@ -206,7 +196,6 @@ function sp_md_inline(string $text, array $docs): string
         return $stash('<a href="' . sp_md_escape($target) . '" rel="noopener">' . $url . '</a>') . $trailing;
     }, $text);
 
-    // Restore the stashed pieces (they can be nested)
     for ($i = 0; $i < 4; $i++) {
         $text = preg_replace_callback('/\x{E000}(\d+)\x{E001}/u', function ($match) use ($tokens) {
             return $tokens[(int)$match[1]] ?? '';
@@ -215,8 +204,6 @@ function sp_md_inline(string $text, array $docs): string
     return $text;
 }
 
-// Small Markdown renderer covering what the documentation uses (headings, lists, code blocks, links, images, <details>)
-// $headings receives the table of contents: [['id' => ..., 'text' => ..., 'level' => ...], ...]
 function sp_markdown(string $markdown, array $docs, array &$headings = []): string
 {
     $lines = preg_split('/\R/u', str_replace("\xEF\xBB\xBF", '', $markdown));
@@ -270,7 +257,6 @@ function sp_markdown(string $markdown, array $docs, array &$headings = []): stri
             $inCode = true;
             $rest = trim($match[1]);
 
-            // A language name is dropped, but text written on the fence line itself is part of the block
             if ($rest !== '' && !preg_match('/^[a-z0-9+#-]{1,12}$/i', $rest)) {
                 $code[] = $rest;
             }
@@ -310,7 +296,6 @@ function sp_markdown(string $markdown, array $docs, array &$headings = []): stri
             $flush();
             $text = trim($match[2]);
 
-            // Every document starts with its website URL as a title, which the page header replaces
             if (strlen($match[1]) === 1 && preg_match('~^https?://\S+$~', $text)) {
                 continue;
             }

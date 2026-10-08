@@ -32,7 +32,6 @@ if ($status !== 200) {
     }
 }
 
-// Previous and next pages, in the order of the sidebar
 $previous = null;
 $next = null;
 
@@ -43,7 +42,6 @@ if ($doc !== null) {
     $next = $position < count($keys) - 1 ? $docs[$keys[$position + 1]] : null;
 }
 
-// Pages grouped for the sidebar and the index
 $groups = [];
 
 foreach ($docs as $item) {

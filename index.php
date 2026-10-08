@@ -8,7 +8,6 @@ $review_milestone = sp_review_milestone($reviews);
 $price = sp_money($price_eur);
 $price_month = sp_money($price_per_month_eur);
 
-// Payment methods that are not one of the main plans (e.g. Tebex, Paddle)
 $other_methods = [];
 
 foreach ($products['data']['products'] as $product) {

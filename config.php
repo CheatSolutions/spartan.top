@@ -1,8 +1,7 @@
 <?php
 
-// Pricing (single source of truth: every price on the website is derived from these)
 $price_eur = 21.99;
-$price_usd = 25; // Approximate
+$price_usd = 25;
 $price_per_month_eur = round($price_eur / 12, 2);
 
 // Meta Information
@@ -20,8 +19,6 @@ $website_icon = 'https://spartan.top/assets/img/logo.webp';
 $website_banner = 'https://spartan.top/assets/img/mtfuji.jpg';
 $website_color = '#0a0f0c';
 
-
-// Powered by (shown at the top and the bottom of every page)
 $powered_by = [
     'name' => 'Idealistic AI',
     'url' => 'https://www.idealistic.ai',
@@ -29,6 +26,8 @@ $powered_by = [
     'label' => 'Powered by',
     'tagline' => 'Where humans and AI talk in harmony'
 ];
+
+$ai_disclosure = 'Claude, an AI assistant, was used to save time building this website, app is made by humans.';
 
 // Navbar
 $logo = 'https://spartan.top/assets/img/logo.png';
@@ -55,7 +54,6 @@ $free_link = 'https://modrinth.com/plugin/spartan-anticheat';
 $free_note = 'Free for servers with 5 players or less';
 $human_support_link = 'https://builtbybit.com/members/cheatsolutions.63108/';
 
-// Trust bar (the review count is calculated automatically from the reviews below)
 $stats = [
     [
         'value' => '2016',
@@ -113,7 +111,6 @@ $features = [
     ]
 ];
 
-// Pricing plans (both plans cost the same; visitors choose the billing style they prefer and the matching checkout appears)
 $pricing_title = 'How would you like to pay?';
 $pricing_description = 'One price: ' . number_format($price_eur, 2) . ' EUR a year. Pick the billing style you prefer and your checkout appears.';
 $pricing_hint = 'Choose a billing style above to see your checkout.';
@@ -154,7 +151,6 @@ $plans = [
     ]
 ];
 
-// Everything both plans include
 $plan_includes = [
     'Full Edition for Java & Bedrock',
     'Every Minecraft version from 1.7 to the latest',
@@ -163,10 +159,8 @@ $plan_includes = [
     'In-game GUI, deep configs & developer API'
 ];
 
-// Optional promise shown under the plans. Leave empty unless you officially offer it (e.g. a refund policy).
 $guarantee = '';
 
-// How it works
 $steps_title = 'Protected in three simple steps';
 $steps = [
     [
@@ -187,7 +181,6 @@ $steps_link = [
     'url' => 'https://spartan.top/documentation/?page=enable-purchase'
 ];
 
-// Frequently asked questions (answers may contain HTML)
 $faq_title = 'Questions? Answered.';
 $faq = [
     [
@@ -232,7 +225,6 @@ $faq = [
     ]
 ];
 
-// Community and help
 $discord_widget_url = 'https://discord.com/widget?id=289384242075533313&theme=dark';
 $community_title = 'Help is always close';
 $community_description = 'Whether you are installing for the first time or fine-tuning an advanced config, there is a place to get answers.';
@@ -260,8 +252,6 @@ $help_options = [
     ]
 ];
 
-// Documentation (Markdown files fetched from GitHub, cached for an hour and rendered on the website).
-// New files added to the repository appear automatically; the details below only improve how they are presented.
 $docs_repo_url = 'https://github.com/CheatSolutions/Important-Information/tree/main/documentation';
 $docs_raw_base = 'https://raw.githubusercontent.com/CheatSolutions/Important-Information/main/documentation/';
 $docs_api_url = 'https://api.github.com/repos/CheatSolutions/Important-Information/contents/documentation';
@@ -305,7 +295,6 @@ $docs_meta = [
         'description' => 'The hacks Spartan detects, grouped by category.']
 ];
 
-// Final call to action
 $final_title = 'Give your players the fair game they deserve.';
 $final_description = 'Join the server owners who stopped worrying about cheaters.';
 
@@ -317,7 +306,6 @@ $currency = '';
 $store_link = 'https://builtbybit.com/resources/11196/reviews';
 $reviews_title = 'Server owners love Spartan';
 $reviews_description = 'Real reviews from SpigotMC & BuiltByBit buyers.';
-// Reviews highlighted in the homepage carousel (matched by name, shown in this order). Leave empty to use the first reviews.
 $featured_reviews = [
     'BloodyBelgian',
     'jcardonne',
@@ -801,8 +789,6 @@ $reviews = [
     ]
 ];
 
-
-// Products (PayPal and Stripe are unlisted here because they are shown as the main plans above)
 $products = [
     'data' => [
         'products' => [
