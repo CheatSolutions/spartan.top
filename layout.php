@@ -16,6 +16,29 @@ function sp_asset(string $path): string
     return rtrim($website_url, '/') . '/' . $path . ($version ? '?v=' . $version : '');
 }
 
+// Text helpers that keep working on servers without the mbstring extension
+function sp_len(string $text): int
+{
+    if (function_exists('mb_strlen')) {
+        return mb_strlen($text, 'UTF-8');
+    }
+    $count = @preg_match_all('/./su', $text);
+    return $count === false ? strlen($text) : $count;
+}
+
+function sp_lower(string $text): string
+{
+    return function_exists('mb_strtolower') ? mb_strtolower($text, 'UTF-8') : strtolower($text);
+}
+
+function sp_first_letter(string $text): string
+{
+    if (function_exists('mb_substr') && function_exists('mb_strtoupper')) {
+        return mb_strtoupper(mb_substr($text, 0, 1, 'UTF-8'), 'UTF-8');
+    }
+    return strtoupper(substr($text, 0, 1));
+}
+
 function sp_money(float $amount): string
 {
     return number_format($amount, 2, '.', '');
@@ -52,9 +75,7 @@ function sp_pick_reviews(array $reviews, array $featured, int $limit = 18): arra
 function sp_avatar(array $review): string
 {
     $name = trim((string)($review['name'] ?? ''));
-    $initial = function_exists('mb_substr')
-        ? mb_strtoupper(mb_substr($name, 0, 1, 'UTF-8'), 'UTF-8')
-        : strtoupper(substr($name, 0, 1));
+    $initial = sp_first_letter($name);
     $picture = trim((string)($review['picture'] ?? ''));
     $html = '<span class="avatar" aria-hidden="true">' . sp_e($initial);
 
@@ -69,7 +90,7 @@ function sp_avatar(array $review): string
 function sp_review_score(array $review): float
 {
     $text = trim((string)($review['review'] ?? ''));
-    $length = mb_strlen($text, 'UTF-8');
+    $length = sp_len($text);
     $score = 50.0;
 
     $score += preg_match('/^\p{Lu}/u', $text) ? 8 : -8;
@@ -98,7 +119,7 @@ function sp_review_score(array $review): float
     } elseif ($length > 330) {
         $score -= 6;
     }
-    $words = preg_split('/\s+/u', mb_strtolower($text, 'UTF-8'), -1, PREG_SPLIT_NO_EMPTY);
+    $words = preg_split('/\s+/u', sp_lower($text), -1, PREG_SPLIT_NO_EMPTY) ?: [];
 
     if (count($words) >= 8 && count(array_unique($words)) / count($words) < 0.7) {
         $score -= 4;
@@ -126,13 +147,22 @@ function sp_review_score(array $review): float
 // Best written reviews first, while every row of cards gets reviews of a similar length so they sit well next to each other
 function sp_arrange_reviews(array $reviews, int $columns = 3): array
 {
+    try {
+        return sp_arrange_reviews_unsafe($reviews, $columns);
+    } catch (Throwable $exception) {
+        return $reviews;
+    }
+}
+
+function sp_arrange_reviews_unsafe(array $reviews, int $columns): array
+{
     $items = [];
 
     foreach (array_values($reviews) as $index => $review) {
         $items[] = [
             'review' => $review,
             'score' => sp_review_score($review),
-            'length' => mb_strlen(trim((string)($review['review'] ?? '')), 'UTF-8'),
+            'length' => sp_len(trim((string)($review['review'] ?? ''))),
             'index' => $index
         ];
     }
@@ -178,7 +208,7 @@ function sp_arrange_reviews(array $reviews, int $columns = 3): array
 function sp_review_card(array $review, string $class = ''): string
 {
     $text = trim((string)($review['review'] ?? ''));
-    $length = mb_strlen($text, 'UTF-8');
+    $length = sp_len($text);
     $size = $review['_size'] ?? ($length <= 125 ? 'is-short' : ($length <= 195 ? 'is-medium' : 'is-long'));
 
     return '<figure class="review-card ' . $size . ($class !== '' ? ' ' . $class : '') . '">'
