@@ -7,12 +7,28 @@ $price_per_month_eur = round($price_eur / 12, 2);
 
 // Meta Information
 $website_url = 'https://spartan.top/';
-$website_description = 'Stop hackers on your Minecraft server. Java & Bedrock anti-cheat for 1.7 to the latest version, trusted since 2016. Free up to 5 players, then just ' . number_format($price_eur, 2) . ' EUR a year.';
-$website_title = 'Spartan AntiCheat | Minecraft Anti-Cheat for Java & Bedrock';
+$website_description = 'Minecraft anti-cheat plugin for Java & Bedrock servers, 1.7 to the latest version. Trusted since 2016. Free up to 5 players, then ' . number_format($price_eur, 2) . ' EUR a year.';
+$website_title = 'Minecraft Anti-Cheat Plugin for Java & Bedrock | Spartan';
+$website_name = 'Spartan AntiCheat';
+$website_same_as = [
+    'https://builtbybit.com/resources/11196/',
+    'https://modrinth.com/plugin/spartan-anticheat',
+    'https://www.patreon.com/SpartanAntiCheat',
+    'https://github.com/CheatSolutions'
+];
 $website_icon = 'https://spartan.top/assets/img/logo.webp';
 $website_banner = 'https://spartan.top/assets/img/mtfuji.jpg';
-$website_color = '#0d0b0f';
+$website_color = '#0a0f0c';
 
+
+// Powered by (shown at the top and the bottom of every page)
+$powered_by = [
+    'name' => 'Idealistic AI',
+    'url' => 'https://www.idealistic.ai',
+    'logo' => 'https://spartan.top/assets/img/idealistic.svg',
+    'label' => 'Powered by',
+    'tagline' => 'Where humans and AI talk in harmony'
+];
 
 // Navbar
 $logo = 'https://spartan.top/assets/img/logo.png';
@@ -20,7 +36,7 @@ $navlinks = [
     'Home' => 'https://www.idealistic.ai/spartan',
     'Pricing' => 'https://spartan.top/#pricing',
     'Reviews' => 'https://spartan.top/reviews',
-    'Documentation' => 'https://spartan.top/documentation',
+    'Documentation' => 'https://spartan.top/documentation/',
     'Discord' => 'https://spartan.top/discord',
     'Videos' => 'https://spartan.top/videos'
 ];
@@ -31,7 +47,7 @@ $nav_cta = [
 
 // Header
 $alert = 'Trusted by server owners since 2016';
-$h1 = 'Stop cheaters. <span>Keep your players.</span>';
+$h1 = 'Stop Minecraft cheaters. <span>Keep your players.</span>';
 $description = 'Spartan AntiCheat is the longest living paid Minecraft anti-cheat: one plugin that protects your <strong>Java & Bedrock</strong> server on every version from 1.7 to the latest.';
 $hero_cta = 'Get Spartan';
 $hero_secondary_cta = 'Try it free';
@@ -97,19 +113,21 @@ $features = [
     ]
 ];
 
-// Pricing plans (both plans cost the same; they only differ in how you pay)
-$pricing_title = 'Pick how you want to pay';
-$pricing_description = 'Same full Spartan. Same price. Choose the billing style that suits you best.';
+// Pricing plans (both plans cost the same; visitors choose the billing style they prefer and the matching checkout appears)
+$pricing_title = 'How would you like to pay?';
+$pricing_description = 'One price: ' . number_format($price_eur, 2) . ' EUR a year. Pick the billing style you prefer and your checkout appears.';
+$pricing_hint = 'Choose a billing style above to see your checkout.';
 $plans = [
     [
         'id' => 'subscription',
         'provider' => 'stripe',
+        'icon' => '🔄',
+        'choice_title' => 'Set & forget',
+        'choice_description' => 'Renews automatically every year, so you never lose protection.',
         'name' => 'Annual Subscription',
-        'badge' => 'Set & forget',
-        'tagline' => 'Renews every year, so your protection never lapses.',
+        'tagline' => 'Spartan keeps protecting your server year after year, with nothing to remember.',
         'cta' => 'Subscribe with Stripe',
         'url' => 'https://spartan.top/stripe',
-        'highlight' => true,
         'perks' => [
             'Renews automatically every year',
             'Never worry about expiry or forgetting to renew',
@@ -120,12 +138,13 @@ $plans = [
     [
         'id' => 'purchase',
         'provider' => 'paypal',
+        'icon' => '🧾',
+        'choice_title' => 'No recurring',
+        'choice_description' => 'Pay once for a full year. Nothing is ever charged automatically.',
         'name' => 'Annual Purchase',
-        'badge' => 'No recurring charges',
-        'tagline' => 'One payment. One year. Nothing is ever charged automatically.',
+        'tagline' => 'One payment. One year. No auto-renewal and no surprise charges.',
         'cta' => 'Pay once with PayPal',
         'url' => 'https://spartan.top/paypal',
-        'highlight' => false,
         'perks' => [
             'A single payment covers a full year',
             'No auto-renewal, so no surprise charges',
@@ -152,16 +171,20 @@ $steps_title = 'Protected in three simple steps';
 $steps = [
     [
         'title' => 'Pick your plan',
-        'description' => 'Choose the annual subscription or the one-off annual purchase. Same Spartan, same price.'
+        'description' => 'Choose set & forget or no recurring. Same Spartan, same price.'
+    ],
+    [
+        'title' => 'Get your license',
+        'description' => 'Send us your proof of purchase on BuiltByBit and you will usually receive your downloadable license within hours.'
     ],
     [
         'title' => 'Install in minutes',
-        'description' => 'Drop Spartan on your server and fine-tune it from the in-game GUI. It works right out of the box.'
-    ],
-    [
-        'title' => 'Get help anytime',
-        'description' => 'Documentation and AI support on Discord are always one message away, with human support on BuiltByBit when you want a real person.'
+        'description' => 'Drop Spartan into your plugins folder and tune it from the in-game GUI. It works right out of the box.'
     ]
+];
+$steps_link = [
+    'label' => 'Read the full activation guide',
+    'url' => 'https://spartan.top/documentation/?page=enable-purchase'
 ];
 
 // Frequently asked questions (answers may contain HTML)
@@ -170,6 +193,14 @@ $faq = [
     [
         'q' => 'What is the difference between the Annual Subscription and the Annual Purchase?',
         'a' => 'Both give you the exact same Spartan for the same price. The <strong>Annual Subscription</strong> (Stripe) renews automatically every year so your protection never lapses, and you can cancel anytime. The <strong>Annual Purchase</strong> (PayPal) is a single payment that covers one year: we never charge you again automatically, you simply choose whether to renew when the year is up.'
+    ],
+    [
+        'q' => 'How do I get Spartan after I pay?',
+        'a' => 'After paying with PayPal, Stripe or Tebex, <a href="https://builtbybit.com/conversations/add?to=CheatSolutions">open a conversation with us on BuiltByBit</a> and attach your proof of purchase. We usually reply within hours with your downloadable license. The full steps are in the <a href="https://spartan.top/documentation/?page=enable-purchase">activation guide</a>.'
+    ],
+    [
+        'q' => 'What does my server need to run Spartan?',
+        'a' => 'Good single-core CPU performance, 384MB+ of RAM for Spartan and a server TPS of 19 or more. Check the <a href="https://spartan.top/documentation/?page=system-requirements">system requirements</a> for the details.'
     ],
     [
         'q' => 'Can I try Spartan before buying it?',
@@ -199,6 +230,79 @@ $faq = [
         'q' => 'I bought Spartan on SpigotMC. Can I transfer for free?',
         'a' => 'Yes. If you purchased on SpigotMC less than a year ago, your transfer to BuiltByBit is free. <a href="https://spartan.top/discord">Request it on Discord</a> and you will not need to buy again.'
     ]
+];
+
+// Community and help
+$discord_widget_url = 'https://discord.com/widget?id=289384242075533313&theme=dark';
+$community_title = 'Help is always close';
+$community_description = 'Whether you are installing for the first time or fine-tuning an advanced config, there is a place to get answers.';
+$help_options = [
+    [
+        'icon' => '📚',
+        'title' => 'Documentation',
+        'description' => 'Guides for every config file, command and permission.',
+        'label' => 'Browse the documentation',
+        'url' => 'https://spartan.top/documentation/'
+    ],
+    [
+        'icon' => '🤖',
+        'title' => 'AI support on Discord',
+        'description' => 'Ask our AI assistant on the Discord server, right from the widget.',
+        'label' => 'Join the Discord server',
+        'url' => 'https://spartan.top/discord'
+    ],
+    [
+        'icon' => '🧑',
+        'title' => 'Human support on BuiltByBit',
+        'description' => 'Want a real person? Message us on BuiltByBit.',
+        'label' => 'Contact human support',
+        'url' => $human_support_link
+    ]
+];
+
+// Documentation (Markdown files fetched from GitHub, cached for an hour and rendered on the website).
+// New files added to the repository appear automatically; the details below only improve how they are presented.
+$docs_repo_url = 'https://github.com/CheatSolutions/Important-Information/tree/main/documentation';
+$docs_raw_base = 'https://raw.githubusercontent.com/CheatSolutions/Important-Information/main/documentation/';
+$docs_api_url = 'https://api.github.com/repos/CheatSolutions/Important-Information/contents/documentation';
+$docs_groups = ['Getting started', 'Configuration', 'Usage', 'More'];
+$docs_fallback_files = [
+    'enable purchase .md', 'system requirements .md', 'download protocollib .md', 'get help .md',
+    'settings .md', 'checks .md', 'advanced .md', 'messages .md', 'message translations .md', 'compatibility .md',
+    'SQL database .md', 'install discord webhook .md',
+    'commands and permissions .md', 'player info menu .md', 'blocked hacks .md'
+];
+$docs_meta = [
+    'enable-purchase' => ['title' => 'Enable your purchase', 'group' => 'Getting started', 'order' => 1,
+        'description' => 'Activate Spartan after buying with PayPal, Stripe, Tebex, Patreon, BuiltByBit or Polymart.'],
+    'system-requirements' => ['title' => 'System requirements', 'group' => 'Getting started', 'order' => 2,
+        'description' => 'CPU, RAM, storage, TPS and latency recommendations for your server.'],
+    'download-protocollib' => ['title' => 'Download ProtocolLib', 'group' => 'Getting started', 'order' => 3,
+        'description' => 'Many detections need the ProtocolLib plugin to work.'],
+    'get-help' => ['title' => 'Get help', 'group' => 'Getting started', 'order' => 4,
+        'description' => 'How to report false positives, hack bypasses and console errors so they get fixed fast.'],
+    'settings' => ['title' => 'Settings', 'group' => 'Configuration', 'order' => 1,
+        'description' => 'General options for punishments, logs, notifications and purchases (settings.yml).'],
+    'checks' => ['title' => 'Checks', 'group' => 'Configuration', 'order' => 2,
+        'description' => 'Enable, silence and punish every check separately for Java and Bedrock (checks.yml).'],
+    'advanced' => ['title' => 'Advanced', 'group' => 'Configuration', 'order' => 3,
+        'description' => 'Fine-tune the inner workings of individual checks (advanced.yml).'],
+    'messages' => ['title' => 'Messages', 'group' => 'Configuration', 'order' => 4,
+        'description' => 'Customize every message, color and placeholder (messages.yml).'],
+    'message-translations' => ['title' => 'Message translations', 'group' => 'Configuration', 'order' => 5,
+        'description' => 'Ready-made messages.yml files in many languages.'],
+    'compatibility' => ['title' => 'Compatibility', 'group' => 'Configuration', 'order' => 6,
+        'description' => 'The plugins Spartan is compatible with (compatibility.yml).'],
+    'sql-database' => ['title' => 'SQL database', 'group' => 'Configuration', 'order' => 7,
+        'description' => 'Connect Spartan to an SQL database (sql.yml).'],
+    'install-discord-webhook' => ['title' => 'Discord webhooks', 'group' => 'Configuration', 'order' => 8,
+        'description' => 'Create Discord webhooks and add their URLs to Spartan.'],
+    'commands-and-permissions' => ['title' => 'Commands & permissions', 'group' => 'Usage', 'order' => 1,
+        'description' => 'Every Spartan command with the permission it needs.'],
+    'player-info-menu' => ['title' => 'Player info menu', 'group' => 'Usage', 'order' => 2,
+        'description' => 'Understand the reasons shown when you check a player in-game.'],
+    'blocked-hacks' => ['title' => 'Blocked hacks', 'group' => 'Usage', 'order' => 3,
+        'description' => 'The hacks Spartan detects, grouped by category.']
 ];
 
 // Final call to action
@@ -242,7 +346,6 @@ $reviews = [
         'review' => "I've been using this plugin for a few years, and I've noticed a significant improvement in its quality over time. It's a great plugin and definitely worth having.",
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'Smartiehga',
         'review' => "Its a good anti cheat that does what it supposed to obviously you have flase flags here and there but those are fixed pretty fast they work on the plugin activly and it does what its supposed to.",
     ],
@@ -267,7 +370,6 @@ $reviews = [
         'review' => 'Spartan is a very advanced AC that updates multiple times a week. There is no ac on the market with such quick and good support. Continue the good work!',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'ville222222',
         'review' => 'Very nice. good detections, good support. Theres no anticheat that updates this frequently. Very solid! few falses which will be fixed soon. still falses less frequently than any other anticheat that will detect something.',
     ],
@@ -297,7 +399,6 @@ $reviews = [
         'review' => 'Never took the time to write a review. Clearly the best anti-cheat on the market rn. Since 2016, well documented and maintained. As a developer I can only applaud',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'Cyden',
         'review' => "Absolutely amazing Anti-Cheat that works fast, very reliable, and so easy to configure! This Developer also gives Amazing support. If not the best, it's one of the best Anti-cheats!!!",
     ],
@@ -317,7 +418,6 @@ $reviews = [
         'review' => 'Excellent support for the best Anticheat on the market. Blocks all Java and Bedrock threats. I totally recommend it.',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'doubiovo',
         'review' => 'This is the best version of anti-cheating I have ever used. Misjudgment almost never occurs. It takes up very little performance. This plug-in is worth buying',
     ],
@@ -327,7 +427,6 @@ $reviews = [
         'review' => 'Very good plugin I used this plugin before and and it is great also the support I reported a small issue and on the same/next day it was fixed im not sure.',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'Radiant_Shiny',
         'review' => "The author is probably the most devoted person to his creation that I've ever seen. There is no other developer on this platform who would spend hours on developing a plugin and providing support for it.",
     ],
@@ -367,12 +466,10 @@ $reviews = [
         'review' => 'Reliable anti-cheat, regularly updated and enhanced, with an easy to use developer API. To top it all of is a very friendly developer who seems to really show a lot of care and passion for this project. Well worth the purchase!',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'HiuyuTing',
         'review' => 'Working very well on latest minecraft versions, good adaptability with other plugins. Staff is helpful, attitude is nice.Highly recommended.',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'UnleqitQ',
         'review' => 'Way best anticheat so far. Recognizes itself false positives! Easily my number one recommendation.',
     ],
@@ -392,12 +489,10 @@ $reviews = [
         'review' => "I've been using this plugin since this plugin was released, and this plugin completely prevents Hacker from using Cheats. I've never seen this plugin has been bypassed!!",
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'kiwimc',
         'review' => 'This guy has the best Anti Cheat on the market. His support is absolutely amazing and i recommend this to all users look for an Anti Cheat. The money I spent on it is well worth it!',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'wlm123',
         'review' => 'The developer is very positive. I like him very much. I recommend his anti cheating because the developer is very enthusiastic',
     ],
@@ -422,7 +517,6 @@ $reviews = [
         'review' => "Amazing anti-cheat. The default config is quite good, although it isn't perfect. Overall, works very well with my server.",
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'schnubbi2583',
         'review' => 'Very easy installation, usage and configutation. The developer is very kind and always reachable. I can recommend this plugin - it is a must have!',
     ],
@@ -442,7 +536,6 @@ $reviews = [
         'review' => "Literally the best anticheat I've ever bought. With me buying Verus, Alice, Matrix, etc.. none of them worked as well as this. It's definitely worth the money if you want a solid anticheat.",
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'Jgibbz328',
         'review' => 'Amazing plugin! A must have for servers. Save yourself and your admins some time, and let Spartan do all the work of finding and punishing hackers.',
     ],
@@ -492,7 +585,6 @@ $reviews = [
         'review' => 'Consistent support & community support, nice community in the Discord server and the plugin works as intended.',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'XxXTrollMasterHD',
         'review' => 'Very good AntiCheat. The support of this plugin is epic. The dev is always friendly and answering questions within minutes. I really recommend this ressource to everyone.',
     ],
@@ -517,12 +609,10 @@ $reviews = [
         'review' => 'Very nice anticheat, detects very well the cheaters, i also had a problem using the ban command with bedrock players (non related with cheats) and the developer helped me very fast!',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'xemles',
         'review' => "Really responsive developer, got a few false positives, but if you report them to the dev, he'll do everything he can to make the plugin more compatible :)",
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'nikitushu ',
         'review' => 'Very determined author. Stable, regular updates. Nice support. Best anti-cheat on spigot so far!',
     ],
@@ -532,7 +622,6 @@ $reviews = [
         'review' => 'The dev really puts effort into this and it shows, frequent updates and always improving!',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'sbud',
         'review' => 'Very good customer support. Fixed my issues in seconds. Highly recommend. Thank you very much :)',
     ],
@@ -592,7 +681,6 @@ $reviews = [
         'review' => 'Very good anticheat!I suggesting it to everyone who wants one good anticheat to prevent hackers! Im using it also in my server! play.vaniland.xyz',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'SandoMCBrad',
         'review' => "One of the best AntiCheat plugin's there are out there. The Dev helps you with everything. (Setup, Support, etc)",
     ],
@@ -602,12 +690,10 @@ $reviews = [
         'review' => 'Works amazing, detects most hacked clients, owner is very helpful and will personally reach out to you to fix suitable problems! 10/10',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'Joeywp',
         'review' => 'Got some incompatibilies on my themepark server I use this plugin at, but other than that it works fine most of the time, especially considering the very specific technical setup of my server. So far contacted support twice or thrice, and so far the response has been very quick.',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'Xarius86',
         'review' => 'The developer is incredibly responsive to any and all concerns. Updates are released often and fixes are implemented incredibly quickly.',
     ],
@@ -617,7 +703,6 @@ $reviews = [
         'review' => 'Out of all paid plugins, they have the best discord response time, and they actually care about talking.. Even after getting so many Downloads, their support service is top notch. Fixes or bugs are repaired live. just awesome.',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'WeasalCrafter',
         'review' => 'I messaged the guy for some help, and almost immediately got results from them. Great plugin and easy to read configs. Definitely suggest to anyone looking to block hacking.',
     ],
@@ -627,7 +712,6 @@ $reviews = [
         'review' => 'Amazing anticheat. The developer gives quick support and helps fixes issues within minutes. I recommend this anticheat over any others.',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'Loyisa',
         'review' => 'Maybe Spartan is not the best anticheat, but this anticheat has the best support',
     ],
@@ -677,7 +761,6 @@ $reviews = [
         'review' => '5 Star Plugin - Excellent AntiCheat - Developer addresses and fixes problems very quickly. Handled every hack thrown at it gracefully, and much improved false positive detection. Only getting better and better!',
     ],
     [
-        'picture' => 'https://spartan.top/assets/img/picture.png',
         'name' => 'TheNoNinja',
         'review' => 'I have the plugin for some time now and had some questions. I asked the developer on discord and had an answer in mere minutes. Great support, awesome detection, and a great plugin overall. Defiantly a must have!',
     ],
@@ -718,9 +801,6 @@ $reviews = [
     ]
 ];
 
-
-// Terms 
-$terms = [];
 
 // Products (PayPal and Stripe are unlisted here because they are shown as the main plans above)
 $products = [

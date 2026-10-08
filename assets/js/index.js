@@ -1,4 +1,4 @@
-// Spartan website behaviour: background particles, scroll reveal, review carousel, buy bar and click tracking.
+// Spartan website behaviour: loading transition, smooth scrolling, accordions, plan picker, review carousel, buy bar and click tracking.
 
 const snowflakes = {
   "particles": {
@@ -10,7 +10,7 @@ const snowflakes = {
       }
     },
     "color": {
-      "value": "#b6a3ce"
+      "value": "#4ade80"
     },
     "shape": {
       "type": "edge",
@@ -121,6 +121,229 @@ const snowflakes = {
     particlesJS('dots', snowflakes);
   }
 
+  // ---------- Loading transition (first visit of a session, never rendered for crawlers) ----------
+  const splash = document.getElementById('splash');
+
+  if (splash && document.documentElement.classList.contains('splash-on')) {
+    const started = window.__splashStart || Date.now();
+    const minimum = reduceMotion ? 250 : 1300;
+    let hidden = false;
+
+    function hideSplash() {
+      if (hidden) {
+        return;
+      }
+      hidden = true;
+      setTimeout(function () {
+        document.documentElement.classList.add('splash-out');
+
+        try {
+          sessionStorage.setItem('spartanSplash', '1');
+        } catch (e) {
+          // Nothing to remember without storage
+        }
+        setTimeout(function () {
+          splash.remove();
+          document.documentElement.classList.remove('splash-on', 'splash-out');
+        }, 750);
+      }, Math.max(0, minimum - (Date.now() - started)));
+    }
+
+    if (document.readyState === 'complete') {
+      hideSplash();
+    } else {
+      window.addEventListener('load', hideSplash, {once: true});
+    }
+    setTimeout(hideSplash, 3500);
+  }
+
+  // ---------- Eased scrolling for in-page links ----------
+  let scrollFrame = null;
+
+  function stopScroll() {
+    if (scrollFrame !== null) {
+      cancelAnimationFrame(scrollFrame);
+      scrollFrame = null;
+    }
+  }
+
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function smoothScrollTo(target) {
+    stopScroll();
+    const start = window.scrollY;
+    const distance = target - start;
+
+    if (reduceMotion || Math.abs(distance) < 2) {
+      window.scrollTo(0, target);
+      return;
+    }
+    const duration = Math.min(1100, Math.max(450, Math.abs(distance) * 0.4));
+    const begin = performance.now();
+
+    function frame(now) {
+      const progress = Math.min(1, (now - begin) / duration);
+      window.scrollTo(0, start + distance * easeInOutCubic(progress));
+      scrollFrame = progress < 1 ? requestAnimationFrame(frame) : null;
+    }
+
+    scrollFrame = requestAnimationFrame(frame);
+  }
+
+  // The visitor always wins: any manual scrolling cancels the animation
+  ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (name) {
+    window.addEventListener(name, stopScroll, {passive: true});
+  });
+
+  document.addEventListener('click', function (event) {
+    const link = event.target.closest('a[href*="#"]');
+
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) {
+      return;
+    }
+    const url = new URL(link.href, window.location.href);
+
+    if (url.origin !== window.location.origin || url.pathname !== window.location.pathname || url.search !== window.location.search || !url.hash || url.hash === '#') {
+      return;
+    }
+    const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+
+    if (!target) {
+      return;
+    }
+    event.preventDefault();
+    smoothScrollTo(Math.max(0, target.getBoundingClientRect().top + window.scrollY - 16));
+    history.pushState(null, '', url.hash);
+  });
+
+  // ---------- Animated accordions (FAQ answers close each other, documentation blocks are independent) ----------
+  function animateDetails(details, opening) {
+    const summary = details.querySelector(':scope > summary');
+    const startHeight = details.offsetHeight;
+
+    if (details._animation) {
+      details._animation.cancel();
+      details._animation = null;
+    }
+    details.classList.toggle('is-open', opening);
+
+    if (reduceMotion || !details.animate) {
+      details.open = opening;
+      return;
+    }
+
+    const borders = details.offsetHeight - details.clientHeight;
+
+    if (opening) {
+      details.open = true;
+    }
+    const endHeight = opening ? details.offsetHeight : summary.offsetHeight + borders;
+    details.style.overflow = 'hidden';
+    details._animation = details.animate(
+      {height: [startHeight + 'px', endHeight + 'px']},
+      {duration: opening ? 480 : 380, easing: 'cubic-bezier(0.22, 1, 0.36, 1)'}
+    );
+    details._animation.onfinish = function () {
+      details.open = opening;
+      details._animation = null;
+      details.style.overflow = '';
+    };
+    details._animation.oncancel = function () {
+      details.style.overflow = '';
+    };
+  }
+
+  document.querySelectorAll('details[data-accordion]').forEach(function (details) {
+    const summary = details.querySelector(':scope > summary');
+    const group = details.getAttribute('data-accordion');
+    details.classList.toggle('is-open', details.open);
+
+    summary.addEventListener('click', function (event) {
+      event.preventDefault();
+      const opening = !details.classList.contains('is-open');
+
+      if (opening && group) {
+        document.querySelectorAll('details[data-accordion="' + group + '"].is-open').forEach(function (other) {
+          if (other !== details) {
+            animateDetails(other, false);
+          }
+        });
+      }
+      animateDetails(details, opening);
+    });
+  });
+
+  // The documentation sidebar starts collapsed on small screens
+  document.querySelectorAll('.doc-sidebar').forEach(function (sidebar) {
+    if (window.innerWidth < 992) {
+      sidebar.open = false;
+    }
+  });
+
+  // ---------- Plan picker (choose a billing style, then the matching checkout appears) ----------
+  document.querySelectorAll('[data-plan-picker]').forEach(function (picker) {
+    const choices = picker.querySelectorAll('[data-plan-choice]');
+    const panels = picker.querySelectorAll('[data-plan-panel]');
+
+    choices.forEach(function (choice) {
+      choice.addEventListener('click', function () {
+        const id = choice.getAttribute('data-plan-choice');
+        let active = null;
+        picker.classList.add('has-choice');
+        choices.forEach(function (other) {
+          other.setAttribute('aria-pressed', other === choice ? 'true' : 'false');
+        });
+        panels.forEach(function (panel) {
+          const match = panel.getAttribute('data-plan-panel') === id;
+          panel.classList.toggle('is-active', match);
+
+          if (match) {
+            active = panel;
+          }
+        });
+
+        // Make sure the checkout is fully visible, especially on phones
+        requestAnimationFrame(function () {
+          const rect = active.getBoundingClientRect();
+
+          if (rect.bottom > window.innerHeight - 20 || rect.top < 60) {
+            smoothScrollTo(Math.max(0, rect.top + window.scrollY - 90));
+          }
+        });
+      });
+    });
+  });
+
+  // ---------- Documentation search ----------
+  document.querySelectorAll('[data-doc-filter]').forEach(function (input) {
+    const cards = document.querySelectorAll('[data-doc-card]');
+    const groups = document.querySelectorAll('[data-doc-group]');
+    const empty = document.querySelector('.doc-empty');
+
+    input.addEventListener('input', function () {
+      const words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+      let visible = 0;
+
+      cards.forEach(function (card) {
+        const haystack = card.getAttribute('data-search') || '';
+        const match = words.every(function (word) {
+          return haystack.indexOf(word) !== -1;
+        });
+        card.hidden = !match;
+        visible += match ? 1 : 0;
+      });
+      groups.forEach(function (group) {
+        group.hidden = !group.querySelector('[data-doc-card]:not([hidden])');
+      });
+
+      if (empty) {
+        empty.hidden = visible > 0;
+      }
+    });
+  });
+
   // ---------- Scroll reveal ----------
   const revealItems = document.querySelectorAll('.reveal');
 
@@ -154,6 +377,7 @@ const snowflakes = {
     let hovering = false;
     let visible = false;
     let frame = null;
+    let pageHeights = [];
 
     if (slides.length < 2) {
       return;
@@ -190,6 +414,35 @@ const snowflakes = {
       }
     }
 
+    // Every page is as tall as its own tallest card (not the tallest card of the whole carousel), so no card has dead space
+    function measurePages() {
+      const perPage = perView();
+      pageHeights = [];
+      slides.forEach(function (slide) {
+        slide.style.minHeight = '';
+      });
+
+      for (let i = 0; i < slides.length; i += perPage) {
+        const group = slides.slice(i, i + perPage);
+        const tallest = Math.max.apply(null, group.map(function (slide) {
+          return slide.offsetHeight;
+        }));
+        group.forEach(function (slide) {
+          slide.style.minHeight = tallest + 'px';
+        });
+        pageHeights.push(tallest);
+      }
+    }
+
+    function fitHeight(page) {
+      const style = window.getComputedStyle(track);
+      const padding = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+
+      if (pageHeights[page] !== undefined) {
+        track.style.height = (pageHeights[page] + padding) + 'px';
+      }
+    }
+
     function updateDots() {
       const dots = Array.from(dotsBox.children);
 
@@ -201,6 +454,7 @@ const snowflakes = {
       dots.forEach(function (dot, index) {
         dot.classList.toggle('active', index === page);
       });
+      fitHeight(page);
     }
 
     function buildDots() {
@@ -274,11 +528,23 @@ const snowflakes = {
       }
     }, {passive: true});
 
+    function layout() {
+      measurePages();
+      buildDots();
+    }
+
     let resizeTimer = null;
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(buildDots, 150);
+      resizeTimer = setTimeout(layout, 150);
     });
+
+    // Text height changes once the web font and the images are ready
+    window.addEventListener('load', layout);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(layout);
+    }
 
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
@@ -288,7 +554,7 @@ const snowflakes = {
       visible = true;
     }
 
-    buildDots();
+    layout();
     startAutoplay();
   });
 

@@ -7,15 +7,17 @@ $price = sp_money($price_eur);
 sp_head([
     'title' => 'Spartan AntiCheat Reviews | What Server Owners Say',
     'description' => 'Read what Minecraft server owners say about Spartan AntiCheat: ' . count($reviews) . ' real reviews from SpigotMC and BuiltByBit buyers.',
-    'path' => 'reviews/'
+    'path' => 'reviews/',
+    'breadcrumbs' => [['Spartan AntiCheat', $website_url], ['Reviews', $website_url . 'reviews/']]
 ]);
 ?>
 
 <body>
+<?php sp_body_start(); ?>
 <header>
     <div id="dots"></div>
 
-    <?php sp_navbar(); ?>
+    <?php sp_navbar('Reviews'); ?>
 
     <div class="container">
         <div class="row">
@@ -30,18 +32,12 @@ sp_head([
     </div>
 </header>
 
-<main>
+<main id="main">
     <div class="container">
         <div class="row h-100">
-            <?php foreach ($reviews as $review) : ?>
-                <div class="col-lg-4 mb-4 review-col">
-                    <div class="review">
-                        <div class="d-flex gap-3 align-items-center">
-                            <?= sp_avatar($review) ?>
-                            <p class="review-user"><?= sp_e(trim($review['name'])) ?></p>
-                        </div>
-                        <p><?= sp_e($review['review']) ?></p>
-                    </div>
+            <?php foreach (sp_arrange_reviews($reviews) as $review) : ?>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <?= sp_review_card($review) ?>
                 </div>
             <?php endforeach; ?>
 
@@ -57,8 +53,8 @@ sp_head([
                 <h2><?= sp_e($final_title) ?></h2>
                 <p><?= sp_e($final_description) ?> Protection starts today for just &euro;<?= $price ?> a year.</p>
                 <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
-                    <?php foreach ($plans as $plan) : ?>
-                        <a class="primary-button <?= !empty($plan['highlight']) ? 'solid' : '' ?> large"
+                    <?php foreach ($plans as $index => $plan) : ?>
+                        <a class="primary-button <?= $index === 0 ? 'solid' : '' ?> large"
                            href="<?= sp_e($plan['url']) ?>" data-track="<?= sp_e($plan['provider']) ?>_reviews"
                            data-plan="<?= sp_e($plan['name']) ?>"><?= sp_e($plan['cta']) ?></a>
                     <?php endforeach; ?>

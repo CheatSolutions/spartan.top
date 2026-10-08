@@ -1,19 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>https://spartan.top/</loc>
-  <lastmod>2026-10-08T00:00:00+00:00</lastmod>
+  <lastmod>2026-10-08</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://spartan.top/reviews/</loc>
-  <lastmod>2026-10-08T00:00:00+00:00</lastmod>
+  <lastmod>2026-10-08</lastmod>
   <priority>0.80</priority>
 </url>
-
+<url>
+  <loc>https://spartan.top/documentation/</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=enable-purchase</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=system-requirements</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=download-protocollib</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=get-help</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=settings</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=checks</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=advanced</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=messages</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=message-translations</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=compatibility</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=sql-database</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=install-discord-webhook</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=commands-and-permissions</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=player-info-menu</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://spartan.top/documentation/?page=blocked-hacks</loc>
+  <lastmod>2026-10-08</lastmod>
+  <priority>0.60</priority>
+</url>
 </urlset>

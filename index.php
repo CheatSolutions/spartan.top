@@ -1,8 +1,9 @@
 <?php
 include('/var/www/spartan/config.php');
 include('/var/www/spartan/layout.php');
+include('/var/www/spartan/docs.php');
 
-$featured = sp_pick_reviews($reviews, $featured_reviews);
+$featured = sp_arrange_reviews(sp_pick_reviews($reviews, $featured_reviews));
 $review_milestone = sp_review_milestone($reviews);
 $price = sp_money($price_eur);
 $price_month = sp_money($price_per_month_eur);
@@ -20,17 +21,33 @@ foreach ($products['data']['products'] as $product) {
 $schemas = [
     [
         '@context' => 'https://schema.org',
-        '@type' => 'Product',
-        'name' => 'Spartan AntiCheat',
+        '@type' => 'SoftwareApplication',
+        'name' => $website_name,
         'description' => $website_description,
         'image' => $website_banner,
-        'brand' => ['@type' => 'Brand', 'name' => 'Spartan AntiCheat'],
+        'url' => $website_url,
+        'applicationCategory' => 'GameApplication',
+        'applicationSubCategory' => 'Minecraft anti-cheat plugin',
+        'operatingSystem' => 'Any (Java servers running Spigot, Paper or compatible forks, Bedrock players via Geyser)',
+        'softwareVersion' => '1.7 to the latest Minecraft version',
+        'publisher' => ['@type' => 'Organization', 'name' => $powered_by['name'], 'url' => $powered_by['url']],
         'offers' => [
-            '@type' => 'Offer',
-            'price' => $price,
-            'priceCurrency' => 'EUR',
-            'availability' => 'https://schema.org/InStock',
-            'url' => $website_url . '#pricing'
+            [
+                '@type' => 'Offer',
+                'name' => 'Free for servers with 5 players or less',
+                'price' => '0',
+                'priceCurrency' => 'EUR',
+                'availability' => 'https://schema.org/InStock',
+                'url' => $free_link
+            ],
+            [
+                '@type' => 'Offer',
+                'name' => 'Full Edition (Java & Bedrock), annual',
+                'price' => $price,
+                'priceCurrency' => 'EUR',
+                'availability' => 'https://schema.org/InStock',
+                'url' => $website_url . '#pricing'
+            ]
         ]
     ],
     [
@@ -50,6 +67,7 @@ sp_head(['home' => true, 'paddle' => true, 'schemas' => $schemas]);
 ?>
 
 <body>
+<?php sp_body_start(); ?>
 <header class="hero">
     <div id="dots"></div>
 
@@ -89,12 +107,12 @@ sp_head(['home' => true, 'paddle' => true, 'schemas' => $schemas]);
     </div>
 </header>
 
-<main>
+<main id="main">
     <section class="stats-bar">
         <div class="container">
             <div class="row g-3">
-                <?php foreach ($stats as $stat) : ?>
-                    <div class="col-6 col-lg-3">
+                <?php foreach ($stats as $index => $stat) : ?>
+                    <div class="col-6 col-lg-3 reveal" style="--i: <?= $index ?>">
                         <div class="stat">
                             <strong><?= sp_e(str_replace('{reviews}', (string)$review_milestone, $stat['value'])) ?></strong>
                             <span><?= sp_e($stat['label']) ?></span>
@@ -115,14 +133,7 @@ sp_head(['home' => true, 'paddle' => true, 'schemas' => $schemas]);
             <div class="carousel" data-carousel aria-roledescription="carousel" aria-label="Customer reviews">
                 <div class="carousel-track" tabindex="0">
                     <?php foreach ($featured as $review) : ?>
-                        <figure class="review-slide">
-                            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-                            <blockquote><p><?= sp_e($review['review']) ?></p></blockquote>
-                            <figcaption>
-                                <?= sp_avatar($review) ?>
-                                <span><strong><?= sp_e(trim($review['name'])) ?></strong><small>Customer review</small></span>
-                            </figcaption>
-                        </figure>
+                        <?= sp_review_card($review, 'review-slide') ?>
                     <?php endforeach; ?>
                 </div>
                 <button class="carousel-btn prev" type="button" aria-label="Previous reviews">&lsaquo;</button>
@@ -147,8 +158,8 @@ sp_head(['home' => true, 'paddle' => true, 'schemas' => $schemas]);
                 </div>
 
                 <div class="row">
-                    <?php foreach ($features as $feature) : ?>
-                        <div class="col-lg-4 col-md-6 mb-4">
+                    <?php foreach ($features as $index => $feature) : ?>
+                        <div class="col-lg-4 col-md-6 mb-4 reveal" style="--i: <?= $index % 3 ?>">
                             <div class="feature-div">
                                 <div class="feature-icon">
                                     <?= (str_contains($feature['icon'], ".")
@@ -172,55 +183,61 @@ sp_head(['home' => true, 'paddle' => true, 'schemas' => $schemas]);
                 <p><?= sp_e($pricing_description) ?></p>
             </div>
 
-            <div class="row justify-content-center g-4">
-                <?php foreach ($plans as $plan) : ?>
-                    <div class="col-lg-5 col-md-8">
-                        <div class="plan<?= !empty($plan['highlight']) ? ' plan-featured' : '' ?>">
-                            <span class="plan-badge"><?= sp_e($plan['badge']) ?></span>
-                            <h3 class="plan-name"><?= sp_e($plan['name']) ?></h3>
-                            <p class="plan-tagline"><?= sp_e($plan['tagline']) ?></p>
+            <div class="plan-picker" data-plan-picker>
+                <div class="plan-choices">
+                    <?php foreach ($plans as $plan) : ?>
+                        <button type="button" class="plan-choice" data-plan-choice="<?= sp_e($plan['id']) ?>"
+                                data-track="choose_<?= sp_e($plan['id']) ?>" aria-pressed="false">
+                            <span class="choice-icon" aria-hidden="true"><?= sp_e($plan['icon']) ?></span>
+                            <span class="choice-text">
+                                <strong><?= sp_e($plan['choice_title']) ?></strong>
+                                <small><?= sp_e($plan['choice_description']) ?></small>
+                            </span>
+                        </button>
+                    <?php endforeach; ?>
+                </div>
 
-                            <div class="plan-price">
-                                <span class="plan-currency">&euro;</span>
-                                <span class="plan-amount"><?= sp_e(explode('.', $price)[0]) ?></span>
-                                <span class="plan-cents">.<?= sp_e(explode('.', $price)[1] ?? '00') ?></span>
-                                <span class="plan-period">/year</span>
+                <p class="plan-hint"><?= sp_e($pricing_hint) ?></p>
+
+                <div class="plan-stage">
+                    <?php foreach ($plans as $plan) : ?>
+                        <div class="plan-panel" data-plan-panel="<?= sp_e($plan['id']) ?>">
+                            <div class="plan">
+                                <span class="plan-badge"><?= sp_e($plan['name']) ?></span>
+                                <h3 class="plan-name"><?= sp_e($plan['choice_title']) ?></h3>
+                                <p class="plan-tagline"><?= sp_e($plan['tagline']) ?></p>
+
+                                <div class="plan-price">
+                                    <span class="plan-currency">&euro;</span>
+                                    <span class="plan-amount"><?= sp_e(explode('.', $price)[0]) ?></span>
+                                    <span class="plan-cents">.<?= sp_e(explode('.', $price)[1] ?? '00') ?></span>
+                                    <span class="plan-period">/year</span>
+                                </div>
+                                <p class="plan-sub">Just &euro;<?= $price_month ?> a month &middot; approx. <?= (int)$price_usd ?> USD</p>
+
+                                <a class="primary-button solid block" href="<?= sp_e($plan['url']) ?>"
+                                   data-track="<?= sp_e($plan['provider']) ?>"
+                                   data-plan="<?= sp_e($plan['name']) ?>"><?= sp_e($plan['cta']) ?></a>
+                                <p class="plan-fine"><?= sp_e($plan['fine_print']) ?></p>
+
+                                <ul class="plan-perks">
+                                    <?php foreach ($plan['perks'] as $perk) : ?>
+                                        <li class="highlight"><?= sp_e($perk) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                                <ul class="plan-perks">
+                                    <?php foreach ($plan_includes as $perk) : ?>
+                                        <li><?= sp_e($perk) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
                             </div>
-                            <p class="plan-sub">Just &euro;<?= $price_month ?> a month &middot; approx. <?= (int)$price_usd ?> USD</p>
-
-                            <a class="primary-button <?= !empty($plan['highlight']) ? 'solid' : '' ?> block"
-                               href="<?= sp_e($plan['url']) ?>" data-track="<?= sp_e($plan['provider']) ?>"
-                               data-plan="<?= sp_e($plan['name']) ?>"><?= sp_e($plan['cta']) ?></a>
-                            <p class="plan-fine"><?= sp_e($plan['fine_print']) ?></p>
-
-                            <ul class="plan-perks">
-                                <?php foreach ($plan['perks'] as $perk) : ?>
-                                    <li class="highlight"><?= sp_e($perk) ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                            <ul class="plan-perks">
-                                <?php foreach ($plan_includes as $perk) : ?>
-                                    <li><?= sp_e($perk) ?></li>
-                                <?php endforeach; ?>
-                            </ul>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
 
             <?php if (!empty($guarantee)) : ?>
                 <p class="guarantee"><?= sp_e($guarantee) ?></p>
-            <?php endif; ?>
-
-            <?php if (count($plans) >= 2) : ?>
-                <div class="plan-help">
-                    <div><strong>Want zero interruptions?</strong>
-                        Go with the <?= sp_e($plans[0]['name']) ?>. Spartan simply keeps protecting your server.
-                    </div>
-                    <div><strong>Want zero surprises?</strong>
-                        Go with the <?= sp_e($plans[1]['name']) ?>. You pay once and nothing is ever charged again by itself.
-                    </div>
-                </div>
             <?php endif; ?>
 
             <?php if (!empty($other_methods)) : ?>
@@ -256,7 +273,7 @@ sp_head(['home' => true, 'paddle' => true, 'schemas' => $schemas]);
             </div>
             <div class="row g-4">
                 <?php foreach ($steps as $index => $step) : ?>
-                    <div class="col-md-4">
+                    <div class="col-md-4 reveal" style="--i: <?= $index ?>">
                         <div class="step">
                             <span class="step-number"><?= $index + 1 ?></span>
                             <h3><?= sp_e($step['title']) ?></h3>
@@ -265,6 +282,7 @@ sp_head(['home' => true, 'paddle' => true, 'schemas' => $schemas]);
                     </div>
                 <?php endforeach; ?>
             </div>
+            <p class="text-center mt-4"><a class="text-link" href="<?= sp_e($steps_link['url']) ?>"><?= sp_e($steps_link['label']) ?> &rarr;</a></p>
         </div>
     </section>
 
@@ -274,11 +292,41 @@ sp_head(['home' => true, 'paddle' => true, 'schemas' => $schemas]);
                 <h2><?= sp_e($faq_title) ?></h2>
             </div>
             <?php foreach ($faq as $item) : ?>
-                <details class="faq-item">
+                <details class="faq-item" data-accordion="faq">
                     <summary><?= sp_e($item['q']) ?></summary>
-                    <p><?= $item['a'] ?></p>
+                    <div class="faq-body"><p><?= $item['a'] ?></p></div>
                 </details>
             <?php endforeach; ?>
+        </div>
+    </section>
+
+    <section id="community" class="reveal">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2><?= sp_e($community_title) ?></h2>
+                    <p class="mb-4"><?= sp_e($community_description) ?></p>
+                    <ul class="help-list">
+                        <?php foreach ($help_options as $option) : ?>
+                            <li>
+                                <span class="help-icon" aria-hidden="true"><?= sp_e($option['icon']) ?></span>
+                                <div>
+                                    <strong><?= sp_e($option['title']) ?></strong>
+                                    <span><?= sp_e($option['description']) ?></span>
+                                    <a class="text-link" href="<?= sp_e($option['url']) ?>"><?= sp_e($option['label']) ?> &rarr;</a>
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="widget-frame">
+                        <iframe src="<?= sp_e($discord_widget_url) ?>" width="350" height="500" allowtransparency="true"
+                                frameborder="0" loading="lazy" title="Spartan AntiCheat on Discord"
+                                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -288,13 +336,13 @@ sp_head(['home' => true, 'paddle' => true, 'schemas' => $schemas]);
                 <h2><?= sp_e($final_title) ?></h2>
                 <p><?= sp_e($final_description) ?> Protection starts today for just &euro;<?= $price ?> a year.</p>
                 <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
-                    <?php foreach ($plans as $plan) : ?>
-                        <a class="primary-button <?= !empty($plan['highlight']) ? 'solid' : '' ?> large"
+                    <?php foreach ($plans as $index => $plan) : ?>
+                        <a class="primary-button <?= $index === 0 ? 'solid' : '' ?> large"
                            href="<?= sp_e($plan['url']) ?>" data-track="<?= sp_e($plan['provider']) ?>_final"
                            data-plan="<?= sp_e($plan['name']) ?>"><?= sp_e($plan['cta']) ?></a>
                     <?php endforeach; ?>
                 </div>
-                <p class="final-note">Questions first? Ask our AI support on <a href="https://spartan.top/discord">Discord</a>
+                <p class="final-note">Questions first? Browse the <a href="<?= sp_e(sp_docs_url()) ?>">documentation</a>, ask our AI support on <a href="https://spartan.top/discord">Discord</a>
                     or reach our human support on <a href="<?= sp_e($human_support_link) ?>">BuiltByBit</a>.</p>
             </div>
         </div>

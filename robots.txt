@@ -1,3 +1,16 @@
 User-agent: *
 Allow: /
+# Short links that only redirect to checkouts, downloads or other websites
+Disallow: /paypal/
+Disallow: /stripe/
+Disallow: /tebex/
+Disallow: /offer/
+Disallow: /download/
+Disallow: /builtbybit/
+Disallow: /polymart/
+Disallow: /voxel/
+Disallow: /syn/
+Disallow: /stats/
+Disallow: /legal/
+
 Sitemap: https://spartan.top/sitemap.xml
