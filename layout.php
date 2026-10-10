@@ -412,7 +412,7 @@ function sp_navbar(string $active = ''): void
 
 function sp_footer(): void
 {
-    global $logo, $website_url, $free_link, $human_support_link, $powered_by, $ai_disclosure;
+    global $logo, $website_url, $free_link, $human_support_link, $powered_by;
     $base = rtrim($website_url, '/');
     ?>
 <footer class="site-footer">
@@ -455,7 +455,6 @@ function sp_footer(): void
         <div class="footer-bottom">
             <p>&copy; 2016-<?= date('Y') ?> Spartan AntiCheat. Not affiliated with Mojang Studios or Microsoft.
                 Minecraft is a trademark of Mojang Synergies AB.</p>
-            <p><?= sp_e($ai_disclosure) ?></p>
         </div>
     </div>
 </footer>

@@ -11,5 +11,8 @@ Disallow: /voxel/
 Disallow: /syn/
 Disallow: /stats/
 Disallow: /legal/
+Disallow: /contributors/
+Disallow: /videos/
+Disallow: /Spartan.jar
 
 Sitemap: https://spartan.top/sitemap.xml

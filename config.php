@@ -27,8 +27,6 @@ $powered_by = [
     'tagline' => 'Where humans and AI talk in harmony'
 ];
 
-$ai_disclosure = 'Claude, an AI assistant, was used to save time building this website, app is made by humans.';
-
 // Navbar
 $logo = 'https://spartan.top/assets/img/logo.png';
 $navlinks = [
@@ -946,4 +944,4 @@ $products = [
             ]
         ]
     ],
-];
+];
